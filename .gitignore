@@ -1,0 +1,21 @@
+#Netbeans specific#
+/assign/build/
+/assign/dist/
+
+/assign/nbproject/private/
+/assign/build/
+/assign/nbbuild/
+/assign/dist/
+/assign/nbdist/
+/assign/nbactions.xml
+/assign/nb-configuration.xml
+
+/assign/nbproject/genfiles.properties
+
+#Class files#
+*.class
+
+#Package files#
+*.jar
+*.war
+*.ear
