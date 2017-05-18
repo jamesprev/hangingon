@@ -10,10 +10,10 @@
     <head>
         <!Needs a menu>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>FlightClub</title>
     </head>
     <body>
-        <jsp:include page="menu.jsp" />
+        <jsp:include page="menu.jsp"/>
         
         <!Search fields:
             From one city to another
@@ -25,6 +25,7 @@
             Logged in takes them to results - clickable to book
             Not logged in has non-clickable results and a prompt to register/login>
     
-        <h1>Hello World!</h1>
+        <h1>FlightClub</h1>
+        <h3>1st rule of FlightClub: don't tell anyone about FlightClub</h3>
     </body>
 </html>
