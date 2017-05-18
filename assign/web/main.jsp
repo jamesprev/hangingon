@@ -13,6 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <jsp:include page="menu.jsp" />
+        
         <!Search fields:
             From one city to another
             Type of flight
