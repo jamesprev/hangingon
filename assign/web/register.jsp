@@ -21,8 +21,8 @@
             <tr><td>Password    <td> <input type="password" name="password"></td></tr>
             <tr><td>Date of Birth<td> <input type="dob" name="dob"></td></tr>
             <tr><td><input type="submit" value="Register"></td>
-                <td><input type="button" value="Cancel" onclick=""></td>
-                <td><input type="button" name="Back" onclick="document.history.back();"</td></tr>
+                <td><input type="button" value="Cancel" onclick="document.history.back();"></td>
+                <td><input type="button" name="Back" onclick="document.history.back();"></td></tr>
             
             <!Registered details are verified to be correct format then added to XML doc>
         </table>

@@ -16,7 +16,7 @@ import java.io.Serializable;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "users")
-public class Users implements Serializable {
+public class Users implements Serializable {//Lab 5
     
     //hi
     @XmlElement(name = "user")
@@ -36,7 +36,7 @@ public class Users implements Serializable {
     {
         for (User user : list) {
             if (user.getEmail().equals(email))
-                return user; // Login correct. Return this user.
+                return user; // Email correct. Return this user.
         }
         return null;
     }
