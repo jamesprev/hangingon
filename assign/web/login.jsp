@@ -13,8 +13,8 @@
     <title>JSP Page</title>
 </head>
 <body>
-    <form action="" method ="post">
-        <table>
+    <form action="loginAction.jsp" method ="post">
+      <table>
             <tr>
             <h1>Log In</h1> 
             </tr> 
