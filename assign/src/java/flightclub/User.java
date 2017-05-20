@@ -31,7 +31,7 @@ public class User implements Serializable{
     private String password;
     @XmlElement(name = "dob")
     private String dob;
-    @XmlElement(name = "isadmin")
+    @XmlElement(name = "isAdmin")
     private boolean isAdmin;
     
     /**
