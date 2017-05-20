@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%-- 
     Document   : main
     Created on : 18/05/2017, 9:59:45 PM
@@ -27,6 +26,9 @@
             Not logged in has non-clickable results and a prompt to register/login>
     
         <h1>FlightClub</h1>
-        <h3>1st rule of FlightClub: don't tell anyone about FlightClub</h3>
+        <h3>The first rule of Fight Club is: you do not talk about Fight Club. 
+            The second rule of Fight Club is: you DO NOT talk about Fight Club! 
+            Third rule of Fight Club: someone yells "stop!", goes limp, taps out, the fight is over.
+            Fourth rule: only two guys to a fight.</h3>
     </body>
 </html>
