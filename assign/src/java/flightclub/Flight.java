@@ -11,14 +11,8 @@ package flightclub;
  */
 public class Flight {
 
-    private int departureDate;
-    private int returnDate;
-    private int numofSeats;
-    private int numofCustomers;
-    private String flightType;
-    private String city;
-    
-    
+    private int departureDate, returnDate, returnTime, departureTime, numofSeats, numofCustomers, flightPrice;
+    private String flightType, city;
 
     public int getDepartureDate() {
         return departureDate;
@@ -27,13 +21,26 @@ public class Flight {
     public int getReturnDate() {
         return returnDate;
     }
-    
-    public int getNumofSeats() {
-    return numofSeats;
+
+    public int getReturnTime() {
+        return returnTime;
     }
-    
+
+    public int getDepartureTime() {
+        return departureTime;
+    }
+
+    public int getNumofSeats() {
+        return numofSeats;
+    }
+
     public int getNumofCustomers() {
-    return numofCustomers;
+        return numofCustomers;
+    }
+
+    public int getFlightPrice() {
+        return flightPrice;
+
     }
 
     public String getFlightType() {
@@ -41,7 +48,7 @@ public class Flight {
     }
 
     public String getCity() {
-    return city;
+        return city;
     }
-  
+
 }
