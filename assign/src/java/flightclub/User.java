@@ -23,7 +23,6 @@ public class User implements Serializable{
     
     //Add all the stuff a user is meant to have including username/password
     
-    private boolean isadmin;
     @XmlElement(name = "name")
     private String name;
     @XmlElement(name = "email")
@@ -32,21 +31,32 @@ public class User implements Serializable{
     private String password;
     @XmlElement(name = "dob")
     private String dob;
-    @XmlElement(name = "usertype")
-    private String usertype;
+    @XmlElement(name = "isadmin")
+    private boolean isAdmin;
     
     /**
-     * Empty constructor to be a javabean
-     * @param name
-     * @param email
-     * @param password
-     * @param dob
-     * @param usertype
+     * Empty constructor
      */
-    public User(String name, String email, String password, String dob, String usertype) {}
+    public User() {}
+    
+    /**
+     * Full constructor
+     * @param name User's name
+     * @param email User's email
+     * @param password User's password
+     * @param dob User's date of birth
+     * @param usertype 
+     */
+    public User(String name, String email, String password, String dob, boolean isAdmin) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.dob = dob;
+        this.isAdmin = isAdmin;
+    }
     
     public boolean getIsAdmin() {
-        return isadmin;
+        return isAdmin;
     }
     
     public String getName() {
@@ -65,16 +75,12 @@ public class User implements Serializable{
         return dob;
     }
     
-    public String getUsertype(){
-        return usertype;
-    }
-    
     
     /**
      * @param isAdmin the isAdmin to set
      */
     public void setIsAdmin(boolean isAdmin) {
-        this.isadmin = isAdmin;
+        this.isAdmin = isAdmin;
     }
 
     /**
@@ -103,12 +109,5 @@ public class User implements Serializable{
      */
     public void setDob(String dob) {
         this.dob = dob;
-    }
-    
-    /**
-     * @param usertype the usertype to set
-     */
-        public void setUsertype(String usertype) {
-        this.usertype = usertype;
     }
 }
