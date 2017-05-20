@@ -6,6 +6,8 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +16,36 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+       
+        <%--
+        
+       <%
+            String email = request.getParameter("email"); 
+            String password = request.getParameter("password");
+
+            User user = ().getUsers().login(email, password);
+            if (user != null) {
+                //user login successful, store user object in session
+                session.setAttribute("user", user);
+            
+        %>
+        
+        
+        
+        <div>
+            Login successful. Click <a href="main.jsp">here</a> to return to the main page.
+        </div>
+        <%} else { %>
+        <div>
+            Password incorrect. Click <a href="login.jsp">here</a> to try again.
+        </div>
+        <%}%>
+   --%>
+        
+        
+        
+        
+        
     </body>
 </html>
 
