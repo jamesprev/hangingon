@@ -20,3 +20,4 @@
 *.war
 *.ear
 assign/nbproject/private/private.properties
+assign/nbproject/private/private.xml
