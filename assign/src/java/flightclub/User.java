@@ -22,7 +22,6 @@ public class User implements Serializable{
    //Need to convert this to a bean
     
     //Add all the stuff a user is meant to have including username/password
-    
     @XmlElement(name = "name")
     private String name;
     @XmlElement(name = "email")
@@ -81,6 +80,10 @@ public class User implements Serializable{
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
+    
+    /*public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin.equals("true");
+    }*/
 
     /**
      * @param name the name to set
