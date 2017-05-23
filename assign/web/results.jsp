@@ -5,6 +5,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="flightclub.Flight"%>
+<%
+	String filePath = application.getRealPath("WEB-INF/flights.xml");
+%>
+<jsp:useBean id="userApp" class="flightclub.UserApplication"
+	scope="application">
+	<jsp:setProperty name="userApp" property="filePath"
+		value="<%=filePath%>" />
+</jsp:useBean>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,6 +35,7 @@
                 Logged in takes them to results - clickable to book
                 Not logged in has non-clickable results and a prompt to register/login
             The ability to "create and close a flight listing">
-        <h1>Hello World!</h1>
+
+
     </body>
 </html>

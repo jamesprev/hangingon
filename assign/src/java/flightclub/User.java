@@ -74,8 +74,7 @@ public class User implements Serializable{
     public String getDob() {
         return dob;
     }
-    
-    
+
     /**
      * @param isAdmin the isAdmin to set
      */

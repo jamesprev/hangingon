@@ -7,8 +7,6 @@
 
 <%@page import="flightclub.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <%
 	String filePath = application.getRealPath("WEB-INF/users.xml");
 %>
@@ -22,13 +20,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
     </head>
-    <body>
-        <h1>Hello World!</h1>
-       
-       
-        
+    <body> 
        <%
             String email = request.getParameter("email"); 
             String password = request.getParameter("password");
@@ -37,11 +30,8 @@
             if (user != null) {
                 //user login successful, store user object in session
                 session.setAttribute("user", user);
-            
         %>
-        
-        
-        
+
         <div>
             Login successful. Click <a href="main.jsp">here</a> to return to the main page.
         </div>
@@ -49,13 +39,7 @@
         <div>
             Password incorrect. Click <a href="login.jsp">here</a> to try again.
         </div>
-        <%}%>
-  
-        
-        
-        
-        
-        
+        <%}%>  
     </body>
 </html>
 
