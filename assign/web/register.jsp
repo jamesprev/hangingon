@@ -42,7 +42,7 @@
                 users.addUser(user); //Add user to that list
                 userApp.setUsers(users); //Write it back to the XML file
                 session.setAttribute("user", user);
-                response.setHeader("Refresh", "0;url=main.jsp"); //Redirect to main page
+                response.setHeader("Refresh", "0;url=" + session.getAttribute("returnToPage")); //Redirect to main page
                 session.setAttribute("user", user); 
             } 
             else { //Email already exists
