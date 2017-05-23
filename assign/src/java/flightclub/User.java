@@ -78,13 +78,13 @@ public class User implements Serializable{
     /**
      * @param isAdmin the isAdmin to set
      */
-    /*public void setIsAdmin(boolean isAdmin) {
+    public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
-    }*/
-    
-    public void setIsAdmin(String isAdmin) {
-        this.isAdmin = isAdmin.equals("true");
     }
+    
+    /*public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin.equals("true");
+    }*/
 
     /**
      * @param name the name to set
