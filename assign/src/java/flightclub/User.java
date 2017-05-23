@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.*;
+import java.util.regex.Pattern;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -52,6 +53,39 @@ public class User implements Serializable{
         this.password = password;
         this.dob = dob;
         this.isAdmin = isAdmin;
+    }
+    
+    public boolean isNameValid() {
+        if (name != null && !name.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isEmailValid() {
+        if (email != null && !email.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isPasswordValid() {
+        if (password != null && password.length() > 6) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean isDobValid() {
+        if (dob != null && !dob.isEmpty()) {
+            //Check against basic date regex (verifies numbers between slashes)
+            Pattern pattern = Pattern
+                    .compile("[0123]?\\d\\/[01]?\\d\\/(19|20)\\d\\d");
+            if (pattern.matcher(dob).matches()) {
+                return true;
+            }
+        }
+        return false;
     }
     
     public boolean getIsAdmin() {

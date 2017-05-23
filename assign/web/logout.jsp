@@ -10,7 +10,7 @@
     <% session.invalidate(); %>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta HTTP-EQUIV="REFRESH" content="2; url=index.jsp">
+        <meta HTTP-EQUIV="REFRESH" content="2; url=main.jsp">
         <title>Logged out</title>
     </head>
     <body>
