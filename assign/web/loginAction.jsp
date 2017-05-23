@@ -8,10 +8,7 @@
 <%@page import="flightclub.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
-<%
-	String filePath = application.getRealPath("WEB-INF/users.xml");
-%>
+<% String filePath = application.getRealPath("WEB-INF/users.xml"); %>
 <jsp:useBean id="userApp" class="flightclub.UserApplication"
 	scope="application">
 	<jsp:setProperty name="userApp" property="filePath"
@@ -25,10 +22,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-       
-       
-        
        <%
             String email = request.getParameter("email"); 
             String password = request.getParameter("password");
@@ -38,9 +31,7 @@
                 //user login successful, store user object in session
                 session.setAttribute("user", user);
             
-        %>
-        
-        
+        %> 
         
         <div>
             Login successful. Click <a href="main.jsp">here</a> to return to the main page.
@@ -51,11 +42,6 @@
         </div>
         <%}%>
   
-        
-        
-        
-        
-        
     </body>
 </html>
 

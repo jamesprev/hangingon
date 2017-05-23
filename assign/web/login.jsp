@@ -21,7 +21,7 @@
             <tr><td>Email:</td><td><input type="text" name ="email"></td></tr>
             <tr><td>Password:</td><td><input type="password" name="password"></td></tr>
             <tr><td><input type="submit" value="Login"></td></tr>
-                <td><input type="button" value="Cancel" onclick="document.history.back();"></td>
+                <td><input type="button" value="Cancel" onclick="history.back();"></td>
         </table>
     </form>
     <!Login page asks for email and password in a form

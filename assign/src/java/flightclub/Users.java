@@ -17,8 +17,8 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "users")
 public class Users implements Serializable {//Lab 5
-    
-    //hi
+    //Specifies a list ('element wrapper') of type ''
+    //@XmlElementWrapper(name = "users")
     @XmlElement(name = "user")
     private ArrayList<User> list = new ArrayList<User>();
  
@@ -32,6 +32,11 @@ public class Users implements Serializable {//Lab 5
         list.remove(user);
     }
     
+    /**
+     * Gets a specific user from the list
+     * @param email the email of the user to find
+     * @return The found user
+     */
     public User getUser(String email)
     {
         for (User user : list) {
