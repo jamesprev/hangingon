@@ -11,13 +11,13 @@
     <head>
         <!Needs a menu>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>FlightClub</title>
+    <title>Flight Club</title>
 </head>
 <body>
     <jsp:include page="menu.jsp"/>
     <h1>Flight Club</h1>
-    <h3>The first rule of Flight Club is: you do not talk about Fight Club. <br>
-        The second rule of Flight Club is: you DO NOT talk about Fight Club! <br>
+    <h3>The first rule of Flight Club is: you do not talk about Flight Club. <br>
+        The second rule of Flight Club is: you DO NOT talk about Flight Club! <br>
         Third rule of Flight Club: someone yells "stop!", goes limp, taps out, the flight is over.<br>
         Fourth rule: only two guys to a flight.</h3>
     <!Search fields:
@@ -36,7 +36,9 @@
         <tr><h1>Search for flight</h1></tr>
         <tr><td>Departure:<td> <input type="text" name="departure"></td></tr>
         <tr><td>Destination:<td> <input type="text" name="destination"></td></tr>
-        <tr><td>Type of Flight:<td> <input type="text" name="typeofflight"></td></tr>
+        <tr><td>Type of Flight:</td>
+            <td>Economy<input type="radio" name="typeofflighte"></td></tr>
+        <tr><td></td><td>Business<input type="radio" name="typeofflighte"></td></tr>
         <tr><td>Departure Date:<td> <input type="text" name="departuredate"></td></tr>
         <tr><td>Return Date:<td> <input type="text" name="returndate"></td></tr>
         <tr><td><input type="submit" value="Search"></td>

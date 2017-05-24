@@ -37,7 +37,7 @@
 <%
     String departure = request.getParameter("departure");
     String destination = request.getParameter("destination");
-    String typeofflight = request.getParameter("typeofflight");
+    String typeofflight = request.getParameter("typeofflighte");
     String returndate = request.getParameter("returndate");
     String departuredate = request.getParameter("departuredate");
 

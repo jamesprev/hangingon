@@ -33,7 +33,7 @@ public class Flights implements Serializable {//Lab 5
         list.remove(flight);
     }
 
-    public Flight getFlight(String departure, String destination, String typeofflight, String priceofflight, int availableseats, int numberofcustomers, String returndate, String departuredate) {
+    public Flight getFlight(String departure, String destination, String typeofflighte, String typeofflightb, String priceofflight, int availableseats, int numberofcustomers, String returndate, String departuredate) {
         for (Flight flight : list) {
             if (flight.getDestination().equals(destination)) { //JUST TEMP UNTIL WE FIGURE OUT WHAT WE WANT TO DO WITH THIS
                 return flight; // Email correct. Return this user.
@@ -47,7 +47,8 @@ public class Flights implements Serializable {//Lab 5
         for (Flight flight : list) {
             if (flight.getDeparture().equals("") || flight.getDeparture().equals("departure")
                     && flight.getDestination().equals("") || flight.getDestination().equals("destination")
-                    && flight.getTypeOfFlight().equals("") || flight.getTypeOfFlight().equals("typeofflight")
+                    && (flight.getTypeOfFlight().equals("") || flight.getTypeOfFlight().equals("typeofflighte")
+                    || flight.getTypeOfFlight().equals("") || flight.getTypeOfFlight().equals("typeofflighte"))
                     && flight.getDepartureDate().equals("") || flight.getDepartureDate().equals("departuredate")
                     && flight.getDepartureDate().equals("") || flight.getDepartureDate().equals("returndate")
                     ) {

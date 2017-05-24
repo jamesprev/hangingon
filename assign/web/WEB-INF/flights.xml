@@ -4,8 +4,10 @@
     <flight>
         <departure>Sydney</departure>
         <destination>Melbourne</destination>
-        <typeofflight>Economy</typeofflight>
-        <priceofflight>$100</priceofflight>
+        <typeofflighte>Economy</typeofflighte>
+        <priceofflighte>$100</priceofflighte>
+        <typeofflightb>Business</typeofflightb>
+        <priceofflightb>$200</priceofflightb>
         <availableseats>2</availableseats>
         <departuredate>01/06/17</departuredate>
         <returndate>04/06/17</returndate>
@@ -13,8 +15,10 @@
     <flight>
         <departure>Melbourne</departure>
         <destination>Brisbane</destination>
-        <typeofflight>First Class</typeofflight>
-        <priceofflight>$300</priceofflight>
+        <typeofflighte>Economy</typeofflighte>
+        <priceofflighte>$100</priceofflighte>
+        <typeofflightb>Business</typeofflightb>
+        <priceofflightb>$200</priceofflightb>
         <availableseats>2</availableseats>
         <departuredate>02/06/17</departuredate>
         <returndate>05/06/17</returndate>
@@ -22,8 +26,10 @@
     <flight>
         <departure>Brisbane</departure>
         <destination>Sydney</destination>
-        <typeofflight>Business</typeofflight>
-        <priceofflight>$200</priceofflight>
+        <typeofflighte>Economy</typeofflighte>
+        <priceofflighte>$100</priceofflighte>
+        <typeofflightb>Business</typeofflightb>
+        <priceofflightb>$200</priceofflightb>
         <availableseats>2</availableseats>
         <departuredate>03/06/17</departuredate>
         <returndate>06/06/17</returndate>

@@ -34,7 +34,6 @@
         User user = new User(name, email, password, dob, false);
         session.setAttribute("user", user);
     %>
-
     <table>
         <tr><td> Welcome, <%= name%>!</td></tr>
         <tr><td> Your Email is <%= email%>.</td></tr>

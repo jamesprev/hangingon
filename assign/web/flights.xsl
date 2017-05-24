@@ -22,6 +22,7 @@
                 <th>Departure City:</th>
                 <th>Destination City:</th>
                 <th>Type of Flight:</th>
+                <th>Type of Flight:</th>
                 <th>Price of Flight:</th>
                 <th>Available Seats:</th>
                 <th>Departure Date: </th>
@@ -40,7 +41,7 @@
         </tr>
 </xsl:template>
 
-<xsl:template match="flights/flight/departure|destination|typeofflight|priceofflight|availableseats|departuredate|returndate">
+<xsl:template match="flights/flight/departure|destination|typeofflighte|priceofflighte|typeofflightb|priceofflightb|availableseats|departuredate|returndate">
         <td>
             <xsl:apply-templates/>
         </td>
