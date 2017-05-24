@@ -47,10 +47,10 @@ public class Flights implements Serializable {//Lab 5
         for (Flight flight : list) {
             if (flight.getDeparture().equals("") || flight.getDeparture().equals("departure")
                     && flight.getDestination().equals("") || flight.getDestination().equals("destination")
-                    && (flight.getTypeOfFlight().equals("") || flight.getTypeOfFlight().equals("typeofflighte")
-                    || flight.getTypeOfFlight().equals("") || flight.getTypeOfFlight().equals("typeofflighte"))
+                    && (flight.getTypeOfFlightE().equals("") || flight.getTypeOfFlightE().equals("typeofflighte")
+                    || flight.getTypeOfFlightB().equals("") || flight.getTypeOfFlightB().equals("typeofflightb"))
                     && flight.getDepartureDate().equals("") || flight.getDepartureDate().equals("departuredate")
-                    && flight.getDepartureDate().equals("") || flight.getDepartureDate().equals("returndate")
+                    && flight.getReturnDate().equals("") || flight.getReturnDate().equals("returndate")
                     ) {
                 
             }
