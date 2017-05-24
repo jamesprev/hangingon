@@ -45,6 +45,16 @@ public class Users implements Serializable {//Lab 5
         }
         return null;
     }
+    
+    public boolean checkEmailExists(String email) {
+        // For each user in the list...
+        for (User user : list) {
+            if (user.getEmail().equals(email))
+                return true; // Login correct. Return this user.
+        }
+        return false; // Login incorrect. Return null.
+    }
+    
     public User login(String email, String password) {
         // For each user in the list...
         for (User user : list) {

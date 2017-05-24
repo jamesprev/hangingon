@@ -2,6 +2,7 @@
     Document   : welcome
     Created on : 17/05/2017, 11:03:48 PM
     Author     : Jamie Prevedoros
+    NOTE       : ALL OF THIS FUNCTIONALITY IS NOW HANDLED BY REGISTER.JSP
 --%>
 
 <%@page import="flightclub.User"%>

@@ -12,6 +12,13 @@
         <name>Joe Bloggs</name>
         <password>foobar</password>
         <dob>02/06/1990</dob>
+        <isAdmin>true</isAdmin>
+    </user>
+    <user>
+        <email>user@users.com</email>
+        <name>Userino Useroni</name>
+        <password>iamauser</password>
+        <dob>1/1/2017</dob>
         <isAdmin>false</isAdmin>
     </user>
 </users>
