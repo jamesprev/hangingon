@@ -39,10 +39,6 @@
 
         %>
 
-
-            
-        %> 
-
         <div>
             Login successful. Click <a href="main.jsp">here</a> to return to the main page.
         </div>
@@ -52,9 +48,6 @@
         </div>
 
         <%}%>  
-
-        <%}%>
-
     </body>
 </html>
 
