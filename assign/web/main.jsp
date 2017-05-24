@@ -41,8 +41,8 @@
         <tr><td>Departure:<td> <input type="text" name="departure"></td></tr>
         <tr><td>Destination:<td> <input type="text" name="destination"></td></tr>
         <tr><td>Type of Flight:</td>
-            <td>Economy<input type="radio" name="typeofflighte"></td></tr>
-        <tr><td></td><td>Business<input type="radio" name="typeofflighte"></td></tr>
+                     <td>Economy<input type="radio" name="typeofflighte" value="Economy"></td></tr>
+        <tr><td></td><td>Business<input type="radio" name="typeofflightb" value="Business"></td></tr>
         <tr><td>Departure Date:<td> <input type="text" name="departuredate"></td></tr>
         <tr><td>Return Date:<td> <input type="text" name="returndate"></td></tr>
         <tr><td><input type="submit" value="Search"></td>
@@ -106,6 +106,10 @@
     </td>
 </tr>
 -->
+
+
+
+
 
 
 

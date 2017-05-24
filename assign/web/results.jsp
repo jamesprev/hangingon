@@ -20,7 +20,7 @@
         <!Needs menu>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-<body>
+
     <!Results from main page search are dispayed
     Following info on resulting flights is displayed:
     Flight departure & return date/time
@@ -37,17 +37,18 @@
 <%
     String departure = request.getParameter("departure");
     String destination = request.getParameter("destination");
-    String typeofflight = request.getParameter("typeofflighte");
+    String typeofflighte = request.getParameter("typeofflighte");
+    String typeofflightb = request.getParameter("typeofflightb");
     String returndate = request.getParameter("returndate");
     String departuredate = request.getParameter("departuredate");
 
     //for list of flight?
-    Flight flight = flightApp.getFlights().search(departure, destination, typeofflight, returndate, departuredate);
+    Flight flight = flightApp.getFlights().search(departure, destination, typeofflighte, typeofflightb, returndate, departuredate);
     if (flight != null) {
         //add each flight + elements to a list and display on results 
         session.setAttribute("flight", flight);
 
 %>
 
-</body>
+
 </html>

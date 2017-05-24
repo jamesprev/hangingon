@@ -42,21 +42,18 @@ public class Flights implements Serializable {//Lab 5
         return null;
     }
 
-    public Flight search(String departure, String destination, String typeofflight, String returndate, String departuredate) {
-        // For each user in the list...
+    public Flight search(String departure, String destination, String typeofflighte, String typeofflightb, String returndate, String departuredate) {
+        // For each flight in the list...
         for (Flight flight : list) {
-            if (flight.getDeparture().equals("") || flight.getDeparture().equals("departure")
-                    && flight.getDestination().equals("") || flight.getDestination().equals("destination")
-                    && (flight.getTypeOfFlightE().equals("") || flight.getTypeOfFlightE().equals("typeofflighte")
-                    || flight.getTypeOfFlightB().equals("") || flight.getTypeOfFlightB().equals("typeofflightb"))
-                    && flight.getDepartureDate().equals("") || flight.getDepartureDate().equals("departuredate")
-                    && flight.getReturnDate().equals("") || flight.getReturnDate().equals("returndate")
+            if (flight.getDeparture().equals("") || flight.getDeparture().equals("departure")//checks if departure field matches existing flights or is blank.
+                    && flight.getDestination().equals("") || flight.getDestination().equals("destination")//checks if destination field matches existing flights or is blank.
+                    &&(flight.getTypeOfFlightE().equals("typeofflighte") || flight.getTypeOfFlightB().equals("typeofflightb"))//checks which radio button was selected
+                    && flight.getDepartureDate().equals("") || flight.getDepartureDate().equals("departuredate")//checks if departure field matches existing flights or is blank.
+                    && flight.getReturnDate().equals("") || flight.getReturnDate().equals("returndate")//checks if return field matches existing flights or is blank.
                     ) {
-                
-            }
-            
-                return flight; // Login correct. Return this user.
-        }
-        return null; // Login incorrect. Return null.
+                return flight; //Search matches a flight, return the flight
+            }     
+        } 
+        return null; //Search matches no flight, return null. ==IS THIS IN THE RIGHT SPOT?==
     }
 }
