@@ -16,7 +16,7 @@
 *.class
 
 #Package files#
-*.jar
+/assign/*/*.jar
 *.war
 *.ear
 assign/nbproject/private/private.properties

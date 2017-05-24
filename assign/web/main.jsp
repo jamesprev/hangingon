@@ -6,7 +6,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% session.setAttribute("returnToPage", "main.jsp");%>
 <!--Set up for reading XML-->
-<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,8 +52,9 @@
 
         <br><br>
 
-        <!--note - probably don't need the C tags here-->
-        <x:transform xml="WEB-INF/flights.xml" xslt="flights.xsl"/>
+        <c:import url="WEB-INF/flights.xml" var="xml" />
+        <c:import url="flights.xsl" var="xsl" />
+        <x:transform xml="${xml}" xslt="${xsl}" />
 
     </body>
     
