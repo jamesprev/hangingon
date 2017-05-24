@@ -39,10 +39,6 @@
 
         %>
 
-
-            
-        %> 
-
         <div>
             Login successful. Click <a href="main.jsp">here</a> to return to the main page.
         </div>
@@ -51,9 +47,7 @@
             Password incorrect. Click <a href="login.jsp">here</a> to try again.
         </div>
 
-        <%}%>  
-
-        <%}%>
+        <%}%> 
 
     </body>
 </html>

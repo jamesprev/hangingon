@@ -17,7 +17,6 @@ import java.io.Serializable;
 @XmlRootElement(name = "flights")
 public class Flights implements Serializable {//Lab 5
 
-    //hi
     @XmlElement(name = "flight")
     private ArrayList<Flight> list = new ArrayList<Flight>();
 

@@ -2,17 +2,43 @@
 <?xml-stylesheet type="text/xsl" href="flights.xsl"?>
 <flights>
     <flight>
+        <flightId>1</flightId>
         <departure>Sydney</departure>
         <destination>Melbourne</destination>
         <typeofflighte>Economy</typeofflighte>
         <priceofflighte>$100</priceofflighte>
         <typeofflightb>Business</typeofflightb>
         <priceofflightb>$200</priceofflightb>
-        <availableseats>2</availableseats>
+        <availableseats>4</availableseats>
         <departuredate>01/06/17</departuredate>
         <returndate>04/06/17</returndate>
+        <flightSeatsE>
+            <flightSeat>
+                <row>2</row>
+                <seatNumber>A</seatNumber>
+                <booked>false</booked>
+            </flightSeat>
+            <flightSeat>
+                <row>2</row>
+                <seatNumber>B</seatNumber>
+                <booked>false</booked>
+            </flightSeat>
+        </flightSeatsE>
+        <flightSeatsB>
+            <flightSeat>
+                <row>1</row>
+                <seatNumber>A</seatNumber>
+                <booked>false</booked>
+            </flightSeat>
+            <flightSeat>
+                <row>1</row>
+                <seatNumber>B</seatNumber>
+                <booked>false</booked>
+            </flightSeat>
+        </flightSeatsB>
     </flight>
     <flight>
+        <flightId>2</flightId>
         <departure>Melbourne</departure>
         <destination>Brisbane</destination>
         <typeofflighte>Economy</typeofflighte>
@@ -24,6 +50,7 @@
         <returndate>05/06/17</returndate>
     </flight>
     <flight>
+        <flightId>3</flightId>
         <departure>Brisbane</departure>
         <destination>Sydney</destination>
         <typeofflighte>Economy</typeofflighte>

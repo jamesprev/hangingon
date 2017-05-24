@@ -54,6 +54,9 @@
             <td>
                 <xsl:apply-templates/>
             </td>
+            <td>
+                <a href="bookings.jsp"> BOOK NOW </a>
+            </td>
     </xsl:template>
     
 </xsl:stylesheet>

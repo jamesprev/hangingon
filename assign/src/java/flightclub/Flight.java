@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.*;
+import java.util.ArrayList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,6 +20,8 @@ import java.io.*;
 @XmlRootElement
 public class Flight implements Serializable {
 
+    @XmlElement(name = "flightId")
+    private String flightId;
     @XmlElement(name = "departure")
     private String departure;
     @XmlElement(name = "destination")
@@ -39,6 +42,11 @@ public class Flight implements Serializable {
     private String departuredate;
     @XmlElement(name = "returndate")
     private String returndate;
+    //Lists of seats
+    @XmlElement(name = "flightSeatsE") //Economy class seats
+    private ArrayList<FlightSeat> flightSeatsE = new ArrayList<FlightSeat>();
+    @XmlElement(name = "flightSeatsB") //Business class seats
+    private ArrayList<FlightSeat> flightSeatsB = new ArrayList<FlightSeat>();
 
     /**
      * Empty constructor
@@ -48,7 +56,7 @@ public class Flight implements Serializable {
 
     /**
      * Full constructor
-     *
+     * @param flightId Unique ID for a particular flight
      * @param departure Flight departure location
      * @param destination Flight destination city
      * @param typeofflighte Economy Flight class
@@ -60,7 +68,18 @@ public class Flight implements Serializable {
      * @param departuredate Flight departure date
      * @param returndate Flight return date
      */
-    public Flight(String departure, String destination, String typeofflighte, String priceofflighte, String typeofflightb, String priceofflightb, int availableseats, int numberofcustomers, String departuredate, String returndate) {
+    public Flight(String flightId,
+            String departure, 
+            String destination, 
+            String typeofflighte, 
+            String priceofflighte, 
+            String typeofflightb, 
+            String priceofflightb, 
+            int availableseats, 
+            int numberofcustomers, 
+            String departuredate, 
+            String returndate) {
+        this.flightId = flightId;
         this.departure = departure;
         this.destination = destination;
         this.typeofflighte = typeofflighte;
@@ -71,9 +90,12 @@ public class Flight implements Serializable {
         this.numberofcustomers = numberofcustomers;
         this.departuredate = departuredate;
         this.returndate = returndate;
-        //d
     }
 
+    public String getFlightId() {
+        return flightId;
+    }
+    
     public String getDeparture() {
         return departure;
     }
@@ -120,6 +142,13 @@ public class Flight implements Serializable {
 
     public String returndate() {
         return returndate;
+    }
+    
+    /**
+     * @param flightId 
+     */
+    public void setString(String flightId) {
+        this.flightId = flightId;
     }
 
     /**
