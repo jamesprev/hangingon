@@ -3,17 +3,20 @@
     Created on : 18/05/2017, 9:59:45 PM
     Author     : Jamie Prevedoros
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% session.setAttribute("returnToPage", "main.jsp");%>
+<!--Set up for reading XML-->
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
         <!Needs a menu>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Flight Club</title>
 </head>
+
 <body>
+
     <jsp:include page="menu.jsp"/>
     <h1>Flight Club</h1>
     <h3>The first rule of Flight Club is: you do not talk about Flight Club. <br>
@@ -46,6 +49,14 @@
     </table>
 </form>
 
+        <br><br>
+
+        <!--note - probably don't need the C tags here-->
+        <x:transform xml="WEB-INF/flights.xml" xslt="flights.xsl"/>
+
+    </body>
+    
+    </html>
 <!--
 <td>Departure: 
 <td><select name="departure">
@@ -94,5 +105,5 @@
 </tr>
 -->
 
-</body>
-</html>
+
+
