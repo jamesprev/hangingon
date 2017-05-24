@@ -1,0 +1,13 @@
+﻿Don't have to write in the actual XML
+- If it writes to the temp xml
+- Have to be able to show the xml directly
+- Do have to use XSLT to:
+	- make a booking, (this is added to a users booked flights)
+	- 
+	- cancel a booking, 
+	- and the admin roles in regards to bookings
+
+- User views their booked flights (also displayed when they want to cancel a flight)
+
+- When an admin wants to view a list of all of people's booked flights
+	- XSLT also displays A button that links to a cancel page 
