@@ -23,10 +23,14 @@ public class Flight implements Serializable {
     private String departure;
     @XmlElement(name = "destination")
     private String destination;
-    @XmlElement(name = "typeofflight")
-    private String typeofflight;
-    @XmlElement(name = "priceofflight")
-    private String priceofflight;
+    @XmlElement(name = "typeofflighte")
+    private String typeofflighte;
+    @XmlElement(name = "typeofflightb")
+    private String typeofflightb;
+    @XmlElement(name = "priceofflighte")
+    private String priceofflighte;
+    @XmlElement(name = "priceofflightb")
+    private String priceofflightb;
     @XmlElement(name = "availableseats")
     private int availableseats;
     @XmlElement(name = "numberofcustomers")
@@ -47,18 +51,22 @@ public class Flight implements Serializable {
      *
      * @param departure Flight departure location
      * @param destination Flight destination city
-     * @param typeofflight Flight class
-     * @param priceofflight Flight price
+     * @param typeofflighte Economy Flight class
+     * @param typeofflightb Business flight class
+     * @param priceofflighte Economy Flight price
+     * @param priceofflightb Business flight price
      * @param availableseats Number of seats available
      * @param numberofcustomers number of customers booked
      * @param departuredate Flight departure date
      * @param returndate Flight return date
      */
-    public Flight(String departure, String destination, String typeofflight, String priceofflight, int availableseats, int numberofcustomers, String departuredate, String returndate) {
+    public Flight(String departure, String destination, String typeofflighte, String priceofflighte, String typeofflightb, String priceofflightb, int availableseats, int numberofcustomers, String departuredate, String returndate) {
         this.departure = departure;
         this.destination = destination;
-        this.typeofflight = typeofflight;
-        this.priceofflight = priceofflight;
+        this.typeofflighte = typeofflighte;
+        this.priceofflighte = priceofflighte;
+        this.typeofflightb = typeofflightb;
+        this.priceofflightb = priceofflightb;
         this.availableseats = availableseats;
         this.numberofcustomers = numberofcustomers;
         this.departuredate = departuredate;
@@ -90,13 +98,20 @@ public class Flight implements Serializable {
         return numberofcustomers;
     }
 
-    public String getPriceOfFlight() {
-        return priceofflight;
-
+    public String getPriceOfFlightE() {
+        return priceofflighte;
     }
 
-    public String getTypeOfFlight() {
-        return typeofflight;
+    public String getTypeOfFlightE() {
+        return typeofflighte;
+    }
+
+    public String getPriceOfFlightB() {
+        return priceofflightb;
+    }
+
+    public String getTypeOfFlightB() {
+        return typeofflightb;
     }
 
     public String departuredate() {
@@ -122,17 +137,31 @@ public class Flight implements Serializable {
     }
 
     /**
-     * @param typeofflight the typeofflight to set
+     * @param typeofflight the typeofflighte to set
      */
-    public void setTypeOfFlight(String typeofflight) {
-        this.typeofflight = typeofflight;
+    public void setTypeOfFlightE(String typeofflighte) {
+        this.typeofflighte = typeofflighte;
     }
 
     /**
-     * @param priceofflight the priceofflight to set
+     * @param priceofflight the priceofflighte to set
      */
-    public void setPriceofflight(String priceofflight) {
-        this.priceofflight = priceofflight;
+    public void setPriceOfFlightE(String priceofflighte) {
+        this.priceofflighte = priceofflighte;
+    }
+    
+        /**
+     * @param typeofflight the typeofflighte to set
+     */
+    public void setTypeOfFlightB(String typeofflightb) {
+        this.typeofflightb = typeofflightb;
+    }
+
+    /**
+     * @param priceofflight the priceofflighte to set
+     */
+    public void setPriceOfFlightB(String priceofflightb) {
+        this.priceofflightb = priceofflightb;
     }
 
     /**
