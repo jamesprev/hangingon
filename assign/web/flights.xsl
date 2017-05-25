@@ -47,15 +47,15 @@
         <!--Apply style & write out row-->
         <tr>
             <xsl:apply-templates/>
+            <td>
+                <a href="bookings.jsp"> BOOK NOW </a>
+            </td>
         </tr>
     </xsl:template>
 
     <xsl:template match="flights/flight/departure|destination|typeofflighte|priceofflighte|typeofflightb|priceofflightb|availableseats|departuredate|returndate">
             <td>
                 <xsl:apply-templates/>
-            </td>
-            <td>
-                <a href="bookings.jsp"> BOOK NOW </a>
             </td>
     </xsl:template>
     
