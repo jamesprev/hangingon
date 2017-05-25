@@ -41,14 +41,14 @@ public class Flights implements Serializable {//Lab 5
         return null;
     }
 
-    public Flight search(String departure, String destination, String typeofflighte, String typeofflightb, String returndate, String departuredate) {
+    public Flight search(String departure, String destination, String typeOfFlight, String departuredate, String returndate) {
         // For each flight in the list...
         for (Flight flight : list) {
-            if (flight.getDeparture().equals("") || flight.getDeparture().equals("departure")//checks if departure field matches existing flights or is blank.
-                    && flight.getDestination().equals("") || flight.getDestination().equals("destination")//checks if destination field matches existing flights or is blank.
-                    &&(flight.getTypeOfFlightE().equals("typeofflighte") || flight.getTypeOfFlightB().equals("typeofflightb"))//checks which radio button was selected
-                    && flight.getDepartureDate().equals("") || flight.getDepartureDate().equals("departuredate")//checks if departure field matches existing flights or is blank.
-                    && flight.getReturnDate().equals("") || flight.getReturnDate().equals("returndate")//checks if return field matches existing flights or is blank.
+            if ((departure.equals("") || flight.getDeparture().equals(departure))//checks if departure field matches existing flights or is blank.
+                    && (destination.equals("") || flight.getDestination().equals(destination))//checks if destination field matches existing flights or is blank.
+                    && (typeOfFlight.equals("Either") || flight.getTypeOfFlightE().equals(typeOfFlight) || flight.getTypeOfFlightB().equals(typeOfFlight))//checks which radio button was selected
+                    && (departuredate.equals("") || flight.getDepartureDate().equals(departuredate)) //checks if departure field matches existing flights or is blank.
+                    && (returndate.equals("") || flight.getReturnDate().equals(returndate)) //checks if return field matches existing flights or is blank.
                     ) {
                 return flight; //Search matches a flight, return the flight
             }     

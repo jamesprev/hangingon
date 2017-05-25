@@ -30,7 +30,7 @@ public class FlightApplication implements Serializable{
     public void setFilePath(String filePath) throws Exception{
         this.filePath = filePath;
         // Create the unmarshaller
-        JAXBContext jc = JAXBContext.newInstance(Users.class);
+        JAXBContext jc = JAXBContext.newInstance(Flights.class);
         Unmarshaller u = jc.createUnmarshaller();
 
         // Now unmarshal the object from the file
@@ -42,17 +42,5 @@ public class FlightApplication implements Serializable{
  
     public Flights getFlights() {
         return flights;
-    }
-
-    
-    public void setUsers(Flights Flights) throws Exception {
-        this.flights = flights;
-        JAXBContext jc = JAXBContext.newInstance(Users.class);
-        Marshaller m = jc.createMarshaller();
-        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        FileOutputStream fos = new FileOutputStream(filePath);
-        m.marshal  (Flights, fos);
-        fos.close();
-    }
-    
+    }    
 }
