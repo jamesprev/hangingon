@@ -16,13 +16,24 @@ import javax.ws.rs.core.*;
 @Path("/flight")
 public class FlightService {
 
-    @Path("hello")
+    @Path("customers")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public FlightResults/*needs to return a type of some sort*/ flight (@QueryParam("username") String email, 
-            @QueryParam("numofseats") int seats, 
-            @QueryParam("numofflights") int flights
-    /*QueryParam for customer name & numofseats & numofflights*/) {
+    public CustomerResults/*needs to return a type of some sort*/ customerResults(@QueryParam("username") String email){
+        return null;
+    }
+    
+    @Path("numofseats")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public SeatResults seatResults(@QueryParam("numofseats") int seats){
+        return null;
+    }
+            
+    @Path("numofseats")
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public FlightResults flightResults(@QueryParam("numofflights") int flights){
         return null;
     }
 }

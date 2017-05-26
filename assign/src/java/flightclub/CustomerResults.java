@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.*;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class FlightResults {
-    private int numofflights;
+public class CustomerResults {
+    private String email;
     
 }
