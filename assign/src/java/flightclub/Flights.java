@@ -32,10 +32,11 @@ public class Flights implements Serializable {//Lab 5
         list.remove(flight);
     }
 
-    public Flight getFlight(String departure, String destination, String typeofflighte, String typeofflightb, String priceofflight, int availableseats, int numberofcustomers, String returndate, String departuredate) {
+    public Flight findById(String id) {
+
         for (Flight flight : list) {
-            if (flight.getDestination().equals(destination)) { //JUST TEMP UNTIL WE FIGURE OUT WHAT WE WANT TO DO WITH THIS
-                return flight; // Email correct. Return this user.
+            if (id.equals(flight.getFlightId())) {
+                return flight;
             }
         }
         return null;
@@ -53,7 +54,7 @@ public class Flights implements Serializable {//Lab 5
                     ) {
                 flights.add(flight); //Search matches a flight, return the flight
             }     
-        } 
+        }
         return flights;
     }
 }

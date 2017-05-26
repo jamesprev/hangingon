@@ -18,8 +18,8 @@
             String flightId = request.getParameter("flightId");
         %>
         
-        <h1>Booking page, please implement me</h1>
+        <h1>Booking</h1>
         
-        <h3>You are viewing Flight <%=flightId%></h3>
+        <p> Click <a href="viewBooking.jsp">here</a> to view your booking </p>
     </body>
 </html>
