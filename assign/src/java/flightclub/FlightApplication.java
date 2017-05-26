@@ -25,6 +25,8 @@ public class FlightApplication implements Serializable{
     public String getFilePath() {
         return filePath;
     }
+    
+  
 
     
     public void setFilePath(String filePath) throws Exception{
@@ -43,4 +45,6 @@ public class FlightApplication implements Serializable{
     public Flights getFlights() {
         return flights;
     }    
+    
+    
 }

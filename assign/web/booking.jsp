@@ -14,6 +14,11 @@
     <body>
         <jsp:include page="menu.jsp"/>
         
-        <h1>Booking page, please implement me</h1>
+        <h1>Booking</h1>
+        
+        
+        <p> Click <a href="viewBooking.jsp">here</a> to view your booking </p>
+        
+        
     </body>
 </html>
