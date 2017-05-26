@@ -15,7 +15,14 @@
          syntax recommendation http://www.w3.org/TR/xslt 
     -->
     
-    <xsl:template match="flights">
+    <!--PARAMETERS FOR USE WITHIN STYLESHEET (for search mainly)-->
+    <xsl:param name="departure"/>
+    <xsl:param name="destination"/>
+    <xsl:param name="typeOfFlight"/>
+    <xsl:param name="departureDate"/>
+    <xsl:param name="returnDate"/>
+    
+    <xsl:template match="/flights">
         <style>
             table.flightlist { border: solid 1px black; border-collapse: collapse; }
             table.flightlist th { background: #333333; color: white; padding: 8px; border: solid 1px #999999;}
@@ -23,6 +30,8 @@
             table.flightlist td { border: solid 1px #999; }
             .artist { font-style: italic; margin-bottom: 20px;}
         </style>
+        
+        <h1>You searched for: <xsl:value-of select="$destination"/></h1>
         <table class="flightlist">
             <thead>
                 <tr>
@@ -45,14 +54,23 @@
 
     <xsl:template match="flights/flight">
         <!--Apply style & write out row-->
-        <tr>
-            <xsl:apply-templates/>
-            <td>
-                <a href="booking.jsp?flightId={flightId}">BOOK NOW</a>
-            </td>
-        </tr>
+        
+        <!--Check destination-->
+        <xsl:if test="($destination = '' or destination = $destination)
+                    and ($departure = '' or departure = $departure)
+                    and ($typeOfFlight = 'Either' or typeofflighte = $typeOfFlight or typeofflightb = $typeOfFlight)
+                    and ($departureDate = '' or departuredate = $departureDate)
+                    and ($returnDate = '' or returndate = $returnDate)">
+            <tr>
+                <xsl:apply-templates/>
+                <td>
+                    <a href="booking.jsp?flightId={flightId}">BOOK NOW</a>
+                </td>
+            </tr>
+        </xsl:if>
     </xsl:template>
 
+    <!--Match each individual flight-->
     <xsl:template match="flights/flight/departure|destination|typeofflighte|priceofflighte|typeofflightb|priceofflightb|availableseats|departuredate|returndate">
             <td>
                 <xsl:apply-templates/>

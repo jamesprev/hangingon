@@ -14,6 +14,12 @@
     <body>
         <jsp:include page="menu.jsp"/>
         
+        <%
+            String flightId = request.getParameter("flightId");
+        %>
+        
         <h1>Booking page, please implement me</h1>
+        
+        <h3>You are viewing Flight <%=flightId%></h3>
     </body>
 </html>

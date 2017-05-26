@@ -54,10 +54,6 @@ public class Flights implements Serializable {//Lab 5
                 flights.add(flight); //Search matches a flight, return the flight
             }     
         } 
-        if (flights.size() > 0) {
-            return flights;
-        }  else {
-            return null; 
-        }
+        return flights;
     }
 }

@@ -4,16 +4,23 @@
     Author     : Jamie Prevedoros
 --%>
 
+<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="flightclub.*"%>
 <%
     String filePath = application.getRealPath("WEB-INF/flights.xml");
+    session.setAttribute("returnToPage", "main.jsp");
 %>
 <jsp:useBean id="flightApp" class="flightclub.FlightApplication"
              scope="application">
     <jsp:setProperty name="flightApp" property="filePath"
     value="<%=filePath%>" />
 </jsp:useBean>
+
+<!--Set up for using XSLT-->
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,15 +34,6 @@
     String typeOfFlight = request.getParameter("typeOfFlight");
     String returndate = request.getParameter("returndate");
     String departuredate = request.getParameter("departuredate");
-
-    //for list of flight?
-    Flight flight;
-    flight = flightApp.getFlights().search(departure, destination, typeOfFlight, departuredate, returndate);
-    if (flight != null) {
-        //add each flight + elements to a list and display on results 
-        session.setAttribute("flight", flight);
-    }
-
 %>
 
 <body>
@@ -61,6 +59,16 @@
         <li>Return date: <%=returndate%></li>
         <li>Departure date: <%=departuredate%></li>
     </ul>
+    
+    <c:import url="WEB-INF/flights.xml" var="xml" />
+    <c:import url="flightSearch.xsl" var="xsl" />
+    <x:transform xml="${xml}" xslt="${xsl}">
+        <x:param name="departure" value="<%=departure%>"/>
+        <x:param name="destination" value="<%=destination%>"/>
+        <x:param name="typeOfFlight" value="<%=typeOfFlight%>"/>
+        <x:param name="departureDate" value="<%=departuredate%>"/>
+        <x:param name="returnDate" value="<%=returndate%>"/>
+    </x:transform>
 
 </body>
 </html>
