@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package rest;
+package flightclub.rest;
 
+import flightclub.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
@@ -18,7 +19,10 @@ public class FlightService {
     @Path("hello")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public Flight flight (/*QueryParam for customer name & numofseats & numofflights & numofcustomers*/) {
-        return "Hello World";
+    public FlightResults/*needs to return a type of some sort*/ flight (@QueryParam("username") String email, 
+            @QueryParam("numofseats") int seats, 
+            @QueryParam("numofflights") int flights
+    /*QueryParam for customer name & numofseats & numofflights*/) {
+        return null;
     }
 }
