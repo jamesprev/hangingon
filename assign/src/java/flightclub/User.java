@@ -13,15 +13,14 @@ import java.util.regex.Pattern;
  * and open the template in the editor.
  */
 /**
- * 
+ *
  * @author Harrison
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
-public class User implements Serializable{
+public class User implements Serializable {
 
-   //Need to convert this to a bean
-    
+    //Need to convert this to a bean
     //Add all the stuff a user is meant to have including username/password
     @XmlElement(name = "name")
     private String name;
@@ -33,19 +32,21 @@ public class User implements Serializable{
     private String dob;
     @XmlElement(name = "isAdmin")
     private boolean isAdmin;
-    
+
     /**
      * Empty constructor
      */
-    public User() {}
-    
+    public User() {
+    }
+
     /**
      * Full constructor
+     *
      * @param name User's name
      * @param email User's email
      * @param password User's password
      * @param dob User's date of birth
-     * @param usertype 
+     * @param usertype
      */
     public User(String name, String email, String password, String dob, boolean isAdmin) {
         this.name = name;
@@ -54,28 +55,34 @@ public class User implements Serializable{
         this.dob = dob;
         this.isAdmin = isAdmin;
     }
-    
+
     public boolean isNameValid() {
         if (name != null && !name.isEmpty()) {
+            Pattern pattern = Pattern
+                    .compile("[a-zA-Z]+\\s?[a-zA-Z]+");
             return true;
         }
         return false;
     }
-    
+
     public boolean isEmailValid() {
         if (email != null && !email.isEmpty()) {
-            return true;
+            Pattern pattern = Pattern
+                    .compile("[^@]+@?[a-zA-Z]+\\.+[a-zA-Z]");
+            if (pattern.matcher(email).matches()) {
+                return true;
+            }
         }
         return false;
     }
-    
+
     public boolean isPasswordValid() {
         if (password != null && password.length() > 6) {
             return true;
         }
         return false;
     }
-    
+
     public boolean isDobValid() {
         if (dob != null && !dob.isEmpty()) {
             //Check against basic date regex (verifies numbers between slashes)
@@ -87,23 +94,23 @@ public class User implements Serializable{
         }
         return false;
     }
-    
+
     public boolean getIsAdmin() {
         return isAdmin;
     }
-    
+
     public String getName() {
         return name;
     }
-    
+
     public String getEmail() {
         return email;
     }
-    
+
     public String getPassword() {
         return password;
     }
-    
+
     public String getDob() {
         return dob;
     }
@@ -114,11 +121,10 @@ public class User implements Serializable{
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
-    
+
     /*public void setIsAdmin(String isAdmin) {
         this.isAdmin = isAdmin.equals("true");
     }*/
-
     /**
      * @param name the name to set
      */
