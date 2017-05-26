@@ -41,7 +41,7 @@
         <tr><td>Departure:<td> <input type="text" name="departure"></td></tr>
         <tr><td>Destination:<td> <input type="text" name="destination"></td></tr>
         <tr><td>Type of Flight:</td>
-            <td><input type="radio" name="typeOfFlight" value="Either">Either<br>
+            <td><input type="radio" name="typeOfFlight" value="Either" checked>Either<br>
                 <input type="radio" name="typeOfFlight" value="Economy">Economy<br>
                 <input type="radio" name="typeOfFlight" value="Business">Business<br></td></tr>
         <tr><td>Departure Date:<td> <input type="text" name="departuredate"></td></tr>
