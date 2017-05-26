@@ -42,8 +42,9 @@ public class Flights implements Serializable {//Lab 5
         return null;
     }
 
-    public Flight search(String departure, String destination, String typeOfFlight, String departuredate, String returndate) {
+    public List<Flight> search(String departure, String destination, String typeOfFlight, String departuredate, String returndate) {
         // For each flight in the list...
+        List<Flight> flights = new ArrayList<>();
         for (Flight flight : list) {
             if ((departure.equals("") || flight.getDeparture().equals(departure))//checks if departure field matches existing flights or is blank.
                     && (destination.equals("") || flight.getDestination().equals(destination))//checks if destination field matches existing flights or is blank.
@@ -51,9 +52,20 @@ public class Flights implements Serializable {//Lab 5
                     && (departuredate.equals("") || flight.getDepartureDate().equals(departuredate)) //checks if departure field matches existing flights or is blank.
                     && (returndate.equals("") || flight.getReturnDate().equals(returndate)) //checks if return field matches existing flights or is blank.
                     ) {
+<<<<<<< HEAD
                 return flight; //Search matches a flight, return the flight
             }
         }
         return null; //Search matches no flight, return null. ==IS THIS IN THE RIGHT SPOT?==
+=======
+                flights.add(flight); //Search matches a flight, return the flight
+            }     
+        } 
+        if (flights.size() > 0) {
+            return flights;
+        }  else {
+            return null; 
+        }
+>>>>>>> 04341e8cd5c8bbb58caaddd0061255d762195b05
     }
 }

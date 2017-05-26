@@ -48,7 +48,7 @@
         <tr>
             <xsl:apply-templates/>
             <td>
-                <a href="bookings.jsp"> BOOK NOW </a>
+                <a href="bookings.jsp?flightId={flightId}">BOOK NOW</a>
             </td>
         </tr>
     </xsl:template>
