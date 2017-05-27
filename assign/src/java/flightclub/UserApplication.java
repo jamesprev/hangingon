@@ -47,6 +47,10 @@ public class UserApplication implements Serializable{
     
     public void setUsers(Users users) throws Exception {
         this.users = users;
+        writeUsersXml();
+    }
+    
+    public void writeUsersXml()  throws Exception {
         JAXBContext jc = JAXBContext.newInstance(Users.class);
         Marshaller m = jc.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
