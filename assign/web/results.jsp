@@ -25,7 +25,7 @@
         <!Needs menu>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
-
+ <jsp:include page="menu.jsp"/>
 <% //Get search parameters and perform actual search
     String departure = request.getParameter("departure");
     String destination = request.getParameter("destination");

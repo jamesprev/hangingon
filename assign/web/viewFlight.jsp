@@ -24,6 +24,7 @@
     </head>
     <body>
         <h1>Your booking</h1>
+         <jsp:include page="menu.jsp"/>
         <%
             String flightId = request.getParameter("flightId");
             flightApp.readFlightsXml(filePath);  

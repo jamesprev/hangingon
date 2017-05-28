@@ -12,6 +12,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>JSP Page</title>
 </head>
+ <jsp:include page="menu.jsp"/>
 <body>
     <form action="loginAction.jsp" method ="post">
       <table>
