@@ -3,6 +3,7 @@
     Created on : 18/05/2017, 9:59:45 PM
     Author     : Jamie Prevedoros
 --%>
+<%@page import="flightclub.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% session.setAttribute("returnToPage", "main.jsp");%>
 <!--Set up for reading XML-->
@@ -59,4 +60,6 @@
 
     </body>
     
+        
+
 </html>

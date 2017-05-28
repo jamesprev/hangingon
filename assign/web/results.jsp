@@ -34,6 +34,16 @@
     String departuredate = request.getParameter("departuredate");
 %>
 
+
+<% 
+    User sessionUser = (User)session.getAttribute("user"); 
+%> 
+    <%  boolean isLoggedIn = false;
+
+    if (sessionUser != null)
+    { isLoggedIn = true; }
+ 
+ %>
 <body>
 <h1>Results</h1>
 <!Results from main page search are dispayed
@@ -58,6 +68,8 @@
         <li>Departure date: <%=departuredate%></li>
     </ul>
     
+
+    
     <c:import url="WEB-INF/flights.xml" var="xml" />
     <c:import url="flightSearch.xsl" var="xsl" />
     <x:transform xml="${xml}" xslt="${xsl}">
@@ -66,6 +78,7 @@
         <x:param name="typeOfFlight" value="<%=typeOfFlight%>"/>
         <x:param name="departureDate" value="<%=departuredate%>"/>
         <x:param name="returnDate" value="<%=returndate%>"/>
+        <x:param name="isLoggedIn" value="<%=isLoggedIn%>"/>
     </x:transform>
 
 </body>

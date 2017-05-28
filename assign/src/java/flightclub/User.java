@@ -169,4 +169,10 @@ public class User implements Serializable {
     public void setBooking(Booking booking) {
         this.booking = booking;
     }
-}
+    
+  
+    
+    
+   }
+    
+

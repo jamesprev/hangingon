@@ -21,6 +21,7 @@
     <xsl:param name="typeOfFlight"/>
     <xsl:param name="departureDate"/>
     <xsl:param name="returnDate"/>
+    <xsl:param name="isLoggedIn"/>
     
     <xsl:template match="/flights">
         <style>
@@ -64,7 +65,11 @@
             <tr>
                 <xsl:apply-templates/>
                 <td>
-                    <a href="viewFlight.jsp?flightId={flightId}">BOOK NOW</a>
+                    
+                    <xsl:if test="$isLoggedIn">
+                        <a href="viewFlight.jsp?flightId={flightId}">BOOK NOW</a>
+                        </xsl:if>
+                    
                 </td>
             </tr>
         </xsl:if>
