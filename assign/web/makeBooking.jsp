@@ -69,7 +69,7 @@ String userFilePath = application.getRealPath("WEB-INF/users.xml"); %>
         <%} else if (user == null){%>
             <p> You must be logged in to create a booking </p>
         <%} else {%>
-            <p></p>
+            <p>Booking failed, please try again later</p>
         <%}%>
     </body>
 </html>
