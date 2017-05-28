@@ -20,6 +20,7 @@ import java.util.ArrayList;
 @XmlRootElement
 public class Flight implements Serializable {
 
+
     @XmlElement(name = "flightId")
     private String flightId;
     @XmlElement(name = "departure")
@@ -44,9 +45,11 @@ public class Flight implements Serializable {
     private String returndate;
     //Lists of seats
     @XmlElement(name = "flightSeatsE") //Economy class seats
-    private ArrayList<FlightSeat> flightSeatsE = new ArrayList<FlightSeat>();
+    private FlightSeats flightSeatsE;
+    //private ArrayList<FlightSeat> flightSeatsE;
     @XmlElement(name = "flightSeatsB") //Business class seats
-    private ArrayList<FlightSeat> flightSeatsB = new ArrayList<FlightSeat>();
+    private FlightSeats flightSeatsB;
+    //private ArrayList<FlightSeat> flightSeatsB = new ArrayList<FlightSeat>();
 
     /**
      * Empty constructor
@@ -90,6 +93,8 @@ public class Flight implements Serializable {
         this.numberofcustomers = numberofcustomers;
         this.departuredate = departuredate;
         this.returndate = returndate;
+        this.flightSeatsE = new FlightSeats();
+        this.flightSeatsB = new FlightSeats();
     }
 
     /**
@@ -101,33 +106,36 @@ public class Flight implements Serializable {
         FlightSeat seat;
         switch(seatType) {
             case "Business":
-                seat = getNextAvailableSeat(flightSeatsB);
+                seat = flightSeatsB.getNextAvailableSeat();
                 break;
             case "Economy":
             default:
-                seat = getNextAvailableSeat(flightSeatsE);
+                seat = flightSeatsE.getNextAvailableSeat();
                 break;
         }
         if (seat != null) { //Found a seat, create booking and return it
             seat.setBooked(true);
             seat.setBookedBy(userEmail);
-            return new Booking(flightId, seat.getRow(), seat.getSeatNumber());
+            //TODO - UPDATE THE TOTAL NUMBER OF SEATS
+            return new Booking(flightId, seat.getRow(), seat.getSeatNumber(), seatType);
         }
         return null;
     }
     
     /**
-     * Loops over a list of flight seats and returns the first available
-     * @param seatList 
-     * @return Null if none found, a flight seat
+     * Returns the amount of available business class seats
+     * @return Number of available seats, 0 if none available
      */
-    private FlightSeat getNextAvailableSeat(ArrayList<FlightSeat> seatList) {
-        for (FlightSeat seat : seatList) {
-            if (!seat.getBooked()) {
-                return seat;
-            }
-        }
-        return null;
+    public int getNumAvailableSeatsBusiness() {
+        return flightSeatsB.getNumAvailableSeats();
+    }
+    
+    /**
+     * Returns the amount of available business class seats
+     * @return Number of available seats, 0 if none available
+     */
+    public int getNumAvailableSeatsEconomy() {
+        return flightSeatsE.getNumAvailableSeats();
     }
     
     //GETTERS AND SETTERS
@@ -260,4 +268,33 @@ public class Flight implements Serializable {
         this.returndate = returndate;
     }
 
+    
+    /**
+     * @return the flightSeatsE
+     */
+    public FlightSeats getFlightSeatsE() {
+        return flightSeatsE;
+    }
+
+    /**
+     * @param flightSeatsE the flightSeatsE to set
+     */
+    public void setFlightSeatsE(FlightSeats flightSeatsE) {
+        this.flightSeatsE = flightSeatsE;
+    }
+
+    /**
+     * @return the flightSeatsB
+     */
+    public FlightSeats getFlightSeatsB() {
+        return flightSeatsB;
+    }
+
+    /**
+     * @param flightSeatsB the flightSeatsB to set
+     */
+    public void setFlightSeatsB(FlightSeats flightSeatsB) {
+        this.flightSeatsB = flightSeatsB;
+    }
+    
 }

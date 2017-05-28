@@ -5,6 +5,7 @@
  */
 package flightclub;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,19 +16,21 @@ import javax.xml.bind.annotation.XmlElement;
  * @author Harrison
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Booking {
+public class Booking implements Serializable {
     @XmlElement(name = "flightId")
     private String flightId;
     @XmlElement(name = "row")
     private int row;
     @XmlElement(name = "seatNumber")
     private String seatNumber;
+    @XmlElement(name = "seatType")
+    private String seatType;
     
-    public Booking(String flightId, int row, String seatNumber) {
+    public Booking(String flightId, int row, String seatNumber, String seatType) {
         this.flightId = flightId;
         this.row = row;
         this.seatNumber = seatNumber;
-        
+        this.seatType = seatType;
     }
     
     public Booking() {
@@ -74,5 +77,19 @@ public class Booking {
      */
     public void setSeatNumber(String seatNumber) {
         this.seatNumber = seatNumber;
+    }
+
+    /**
+     * @return the seatType
+     */
+    public String getSeatType() {
+        return seatType;
+    }
+
+    /**
+     * @param seatType the seatType to set
+     */
+    public void setSeatType(String seatType) {
+        this.seatType = seatType;
     }
 }

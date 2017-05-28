@@ -15,7 +15,7 @@ import java.io.Serializable;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "flights")
-public class Flights implements Serializable {//Lab 5
+public class Flights implements Serializable {
 
     @XmlElement(name = "flight")
     private ArrayList<Flight> list = new ArrayList<Flight>();

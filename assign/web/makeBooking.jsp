@@ -29,47 +29,44 @@ String userFilePath = application.getRealPath("WEB-INF/users.xml"); %>
     <body>
         <jsp:include page="menu.jsp"/>
         
+        <h1>Booking</h1>
         <%
             //Check if have created a new booking
-            Booking booking = null;
             User user = (User)session.getAttribute("user");
             
-            String submitted = request.getParameter("submit");
-            if (user != null && submitted != null && submitted.equals("Book Seat")) {
-                //Have submitted a new flight
-                String seatType = request.getParameter("typeOfFlight");
-                Flight flightToBook = (Flight)session.getAttribute("flightToBook");
-                
-                Flights flights = flightApp.getFlights();
-                Flight flight = flights.findById(flightToBook.getFlightId());
-                
-                booking = flight.bookNextAvailableSeat(seatType, user.getEmail());
-                
-                if (booking != null) {
-                    //booking is legit
-                    //write out to users 
-                    user.setBooking(booking);
-                    flightApp.writeFlightsXml();
-                    
-                    //Makes sure we have a reference to the correct user object
-                    Users users = userApp.getUsers();
-                    user = users.getUser(user.getEmail());
-                    userApp.setUsers(users);
-                    //userApp.setUsers(users); //Write it back to the XML file
-                    //write out to flights
+            if (user != null) {
+                String submitted = request.getParameter("submit");
+                if (submitted != null && submitted.equals("Book Seat")) {
+                    //Check that user doesn't already have a booking (this is currently not working??)
+                    if (user.getBooking() == null) {
+                        //Request to book is valid, process
+                        String seatType = request.getParameter("typeOfFlight");
+                        Flight flightToBook = (Flight)session.getAttribute("flightToBook");
+
+                        Flight flight = flightApp.getFlights().findById(flightToBook.getFlightId());
+
+                        Booking booking = flight.bookNextAvailableSeat(seatType, user.getEmail());
+
+                        if (booking != null) { //Checks if booking creation was successful
+                            //Retrieve user from 'database', then set the booking object
+                            userApp.getUsers().getUser(user.getEmail()).setBooking(booking);
+                            //Write out both the flights.xml and the users.xml with the new info
+                            flightApp.writeFlightsXml();
+                            userApp.writeUsersXml();
+                            %><p> Booking created, click <a href="booking.jsp">here</a> to view your booking </p><%
+                        } else {
+                            %><p> Booking could not be created, please try again later. </p><%
+                        }
+                    } else {
+                        %><p>You already have a booking. Please cancel your booking before making a new booking.</p> <%
+                    }
+                } else { 
+                    %>
+                    <p>Booking failed, please try again later.</p><%
                 }
+            } else {
+                %><p>Please log in to make a booking.</p><%
             }
         %>
-        
-        
-        
-        <h1>Booking</h1>
-        <%if (booking != null) {%>
-            <p> Booking created, click <a href="viewBooking.jsp">here</a> to view your booking </p>
-        <%} else if (user == null){%>
-            <p> You must be logged in to create a booking </p>
-        <%} else {%>
-            <p>Booking failed, please try again later</p>
-        <%}%>
     </body>
 </html>

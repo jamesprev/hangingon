@@ -4,6 +4,10 @@
     Author     : Harrison
 --%>
 
+<%@page import="flightclub.dom.UsersPrinter.Printer"%>
+<%@page import="flightclub.dom.UsersPrinter.Printer.XMLPrinter"%>
+<%@page import="flightclub.dom.UsersPrinter"%>
+<%@page import="java.io.*"%>
 <%@page import="flightclub.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
@@ -17,7 +21,7 @@
         <title>Admin</title>
     </head>
     <body>
-        
+        <jsp:include page="menu.jsp"/>
         
         <%if (sessionUser == null) { //User is not logged in%>
             <h1>Please log in to access this page</h1>
@@ -25,7 +29,18 @@
             <%if (!sessionUser.getIsAdmin()) { //User is not an admin%>
                 <h1>Please log in with an admin account to access this page</h1>
             <%} else { //USER IS AN ADMIN, load page as usual%>
-                
+                <%
+                    //TEST - write out raw XML of both
+                    /**/
+                    //Set up new XML printer to print to server log
+                    Printer xml = new XMLPrinter();       
+                    PrintWriter systemOut = new PrintWriter(new OutputStreamWriter(System.out), true);
+                    
+                    //Print flights.xml and users.xml
+                    xml.print(application.getRealPath("WEB-INF/flights.xml"), systemOut);
+                    xml.print(application.getRealPath("WEB-INF/users.xml"), systemOut);
+                %>
+                <p>Flights.xml & users.xml printed out to server log</p>
             <%}%>
         <%}%>
     </body>

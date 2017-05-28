@@ -5,6 +5,7 @@
  */
 package flightclub;
 
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,8 +16,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Andrew
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "flightSeat")
-public class FlightSeat {
+@XmlRootElement
+public class FlightSeat implements Serializable {
     @XmlElement(name = "row")
     private int row; //Row in plane of seatNumber
     @XmlElement(name = "seatNumber")
@@ -32,7 +33,7 @@ public class FlightSeat {
     public FlightSeat() { }
     
     /**
-     * constructor
+     * full constructor
      */
     public FlightSeat(int row, String seatNumber) {
         this.row = row;
@@ -50,6 +51,10 @@ public class FlightSeat {
     }
     
     public boolean getBooked() {
+        return booked;
+    }
+    
+    public boolean isBooked() {
         return booked;
     }
     

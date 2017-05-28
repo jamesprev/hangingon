@@ -38,10 +38,11 @@
                     <td style="background: #eee; border: solid 1px #333; padding: 10px">
                         <a href="main.jsp">Main</a>
                     </td>
+                    <%if (sessionUser != null && sessionUser.getIsAdmin()) {%>
                     <td style="background: #eee; border: solid 1px #333; padding: 10px">
                         <a href="booking.jsp">Booking</a>
                     </td>
-                    <%if (sessionUser != null && sessionUser.getIsAdmin()) {%>
+                    <%} if (sessionUser != null && sessionUser.getIsAdmin()) {%>
                     <td style="background: #eee; border: solid 1px #333; padding: 10px">
                         <a href="admin.jsp">Admin</a>
                     </td>
