@@ -23,6 +23,8 @@ public class FlightSeat {
     private String seatNumber; //Seat 'letter'
     @XmlElement(name = "booked")
     private boolean booked; //Whether the seat is booked or not
+    @XmlElement(name = "bookedBy")
+    private String bookedBy; //User that booked this seat
 
     /**
      * Empty constructor
@@ -36,6 +38,7 @@ public class FlightSeat {
         this.row = row;
         this.seatNumber = seatNumber;
         this.booked = false;
+        bookedBy = "";
     }
     
     public int getRow() {
@@ -49,6 +52,13 @@ public class FlightSeat {
     public boolean getBooked() {
         return booked;
     }
+    
+    /**
+     * @return the bookedBy
+     */
+    public String getBookedBy() {
+        return bookedBy;
+    }
 
     public void setRow(int row) {
         this.row = row;
@@ -60,5 +70,9 @@ public class FlightSeat {
     
     public void setBooked(boolean booked) {
         this.booked = booked;
+    }
+
+    void setBookedBy(String userEmail) {
+        this.bookedBy = userEmail;
     }
 }

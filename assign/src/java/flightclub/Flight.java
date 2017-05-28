@@ -92,6 +92,45 @@ public class Flight implements Serializable {
         this.returndate = returndate;
     }
 
+    /**
+     * Creates a booking and set user objects here
+     * @param seatType
+     * @return 
+     */
+    public Booking bookNextAvailableSeat(String seatType, String userEmail) {
+        FlightSeat seat;
+        switch(seatType) {
+            case "Business":
+                seat = getNextAvailableSeat(flightSeatsB);
+                break;
+            case "Economy":
+            default:
+                seat = getNextAvailableSeat(flightSeatsE);
+                break;
+        }
+        if (seat != null) { //Found a seat, create booking and return it
+            seat.setBooked(true);
+            seat.setBookedBy(userEmail);
+            return new Booking(flightId, seat.getRow(), seat.getSeatNumber());
+        }
+        return null;
+    }
+    
+    /**
+     * Loops over a list of flight seats and returns the first available
+     * @param seatList 
+     * @return Null if none found, a flight seat
+     */
+    private FlightSeat getNextAvailableSeat(ArrayList<FlightSeat> seatList) {
+        for (FlightSeat seat : seatList) {
+            if (!seat.getBooked()) {
+                return seat;
+            }
+        }
+        return null;
+    }
+    
+    //GETTERS AND SETTERS
     public String getFlightId() {
         return flightId;
     }
@@ -196,7 +235,7 @@ public class Flight implements Serializable {
     /**
      * @param availableseats the availableseats to set
      */
-    public void SetAvailableSeats(int availableseats) {
+    public void setAvailableSeats(int availableseats) {
         this.availableseats = availableseats;
     }
 

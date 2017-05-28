@@ -1,6 +1,6 @@
 <%-- 
     Document   : booking
-    Created on : 19/05/2017, 12:01:31 AM
+    Created on : 27/05/2017, 6:11:31 PM
     Author     : Harrison
 --%>
 
@@ -9,17 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Booking page</title>
+        <title>My Booking</title>
     </head>
     <body>
-        <jsp:include page="menu.jsp"/>
-        
-        <%
-            String flightId = request.getParameter("flightId");
-        %>
-        
-        <h1>Booking</h1>
-        
-        <p> Click <a href="viewBooking.jsp">here</a> to view your booking </p>
+        <h1>My Booking</h1>
     </body>
 </html>

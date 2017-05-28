@@ -32,6 +32,9 @@ public class User implements Serializable {
     private String dob;
     @XmlElement(name = "isAdmin")
     private boolean isAdmin;
+    //Booking object
+    @XmlElement(name = "booking")
+    private Booking booking;
 
     /**
      * Empty constructor
@@ -151,5 +154,19 @@ public class User implements Serializable {
      */
     public void setDob(String dob) {
         this.dob = dob;
+    }
+
+    /**
+     * @return the booking
+     */
+    public Booking getBooking() {
+        return booking;
+    }
+
+    /**
+     * @param booking the booking to set
+     */
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 }
