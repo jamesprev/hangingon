@@ -41,6 +41,15 @@ public class Flights implements Serializable {//Lab 5
         }
         return null;
     }
+    
+    public Flight getSeatFlights(int seats) {
+        for (Flight flight : list) {
+            if (flight.getAvailableSeats() == seats) {
+                return flight;
+            }
+        }
+        return null;
+    }
 
     public List<Flight> search(String departure, String destination, String typeOfFlight, String departuredate, String returndate) {
         // For each flight in the list...
