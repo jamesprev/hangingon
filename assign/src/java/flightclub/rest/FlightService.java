@@ -65,12 +65,12 @@ public class FlightService {
         return getFlightApp().getFlights();
     }
     
-    @GET
-    @Path("flight/{customers}")
-    @Produces(MediaType.APPLICATION_XML)
-    public Flight getUserFlights(@PathParam("email") String email) throws IOException, Exception{ /*needs to return a type of some sort*/
-        return null;
-    }
+//    @GET
+//    @Path("flight/{customers}")
+//    @Produces(MediaType.APPLICATION_XML)
+//    public Flight getUserFlights(@PathParam("email") String email) throws IOException, Exception{ /*needs to return a type of some sort*/
+//        return null;
+//    }
     
     @GET
     @Path("flight/{numofseats}")
