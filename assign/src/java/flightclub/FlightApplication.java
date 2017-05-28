@@ -26,7 +26,9 @@ public class FlightApplication implements Serializable{
         return filePath;
     }
     
-  
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
 
     
     public void readFlightsXml(String filePath) throws Exception{

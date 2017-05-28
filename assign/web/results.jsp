@@ -12,10 +12,8 @@
     String filePath = application.getRealPath("WEB-INF/flights.xml");
     session.setAttribute("returnToPage", "main.jsp");
 %>
-<jsp:useBean id="flightApp" class="flightclub.FlightApplication"
-             scope="application">
-    <jsp:setProperty name="flightApp" property="filePath"
-    value="<%=filePath%>" />
+<jsp:useBean id="flightApp" class="flightclub.FlightApplication" scope="application">
+    <jsp:setProperty name="flightApp" property="filePath" value="<%=filePath%>" />
 </jsp:useBean>
 
 <!--Set up for using XSLT-->

@@ -4,6 +4,7 @@
     Author     : Harrison
 --%>
 
+<%@page import="flightclub.Flights"%>
 <%@page import="flightclub.Users"%>
 <%@page import="flightclub.Booking"%>
 <%@page import="flightclub.User"%>
@@ -34,12 +35,15 @@ String userFilePath = application.getRealPath("WEB-INF/users.xml"); %>
             User user = (User)session.getAttribute("user");
             
             String submitted = request.getParameter("submit");
-            if (submitted != null && submitted.equals("Register")) {
+            if (user != null && submitted != null && submitted.equals("Book Seat")) {
                 //Have submitted a new flight
                 String seatType = request.getParameter("typeOfFlight");
                 Flight flightToBook = (Flight)session.getAttribute("flightToBook");
                 
-                booking = flightApp.getFlights().findById(flightToBook.getFlightId()).bookNextAvailableSeat(seatType, user.getEmail());
+                Flights flights = flightApp.getFlights();
+                Flight flight = flights.findById(flightToBook.getFlightId());
+                
+                booking = flight.bookNextAvailableSeat(seatType, user.getEmail());
                 
                 if (booking != null) {
                     //booking is legit
@@ -47,10 +51,10 @@ String userFilePath = application.getRealPath("WEB-INF/users.xml"); %>
                     user.setBooking(booking);
                     flightApp.writeFlightsXml();
                     
-                    //NOTE - the session user object may not be the same one in the list
-                    //therefore updating the session object may not update the xml file
-                    //may need to get user again from Users and then update and write out
+                    //Makes sure we have a reference to the correct user object
                     Users users = userApp.getUsers();
+                    user = users.getUser(user.getEmail());
+                    userApp.setUsers(users);
                     //userApp.setUsers(users); //Write it back to the XML file
                     //write out to flights
                 }
@@ -62,8 +66,10 @@ String userFilePath = application.getRealPath("WEB-INF/users.xml"); %>
         <h1>Booking</h1>
         <%if (booking != null) {%>
             <p> Booking created, click <a href="viewBooking.jsp">here</a> to view your booking </p>
+        <%} else if (user == null){%>
+            <p> You must be logged in to create a booking </p>
         <%} else {%>
-            <p> Error making your booking. Click here to return to the previous page. </p>
+            <p></p>
         <%}%>
     </body>
 </html>

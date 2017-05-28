@@ -29,4 +29,50 @@ public class Booking {
         this.seatNumber = seatNumber;
         
     }
+    
+    public Booking() {
+        
+    }
+
+    /**
+     * @return the flightId
+     */
+    public String getFlightId() {
+        return flightId;
+    }
+
+    /**
+     * @param flightId the flightId to set
+     */
+    public void setFlightId(String flightId) {
+        this.flightId = flightId;
+    }
+
+    /**
+     * @return the row
+     */
+    public int getRow() {
+        return row;
+    }
+
+    /**
+     * @param row the row to set
+     */
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    /**
+     * @return the seatNumber
+     */
+    public String getSeatNumber() {
+        return seatNumber;
+    }
+
+    /**
+     * @param seatNumber the seatNumber to set
+     */
+    public void setSeatNumber(String seatNumber) {
+        this.seatNumber = seatNumber;
+    }
 }

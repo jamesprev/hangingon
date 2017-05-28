@@ -25,8 +25,10 @@
     <body>
         <h1>Your booking</h1>
         <%
-           Flights flights = flightApp.getFlights();  
-        Flight flight = flights.findById(request.getParameter("id"));
+            String flightId = request.getParameter("flightId");
+            flightApp.readFlightsXml(filePath);  
+            Flights flights = flightApp.getFlights();
+            Flight flight = flights.findById(flightId);
          //session.setAttribute("flight", flight);
          //Attempt to add something to the post request
          //request.setAttribute("flight", flight);
@@ -44,11 +46,11 @@
         </ul>
         
         <%--IF USER HAS NOT ALREADY BOOKED A FLIGHT:--%>
-        <form action="booking.jsp" method ="post">
+        <form action="makeBooking.jsp" method ="post">
             <% session.setAttribute("flightToBook", flight); %>
             <input type="radio" name="typeOfFlight" value="Economy">Economy<br>
             <input type="radio" name="typeOfFlight" value="Business">Business<br>
-            <input type="submit" value="Book Seat">
+            <input type="submit" name="submit" value="Book Seat">
         </form>
         
     </body>
