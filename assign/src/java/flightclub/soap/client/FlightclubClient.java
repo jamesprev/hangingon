@@ -47,7 +47,7 @@ public class FlightclubClient {
                     loginUser();
                     break;
                 case "viewflights": 
-                    
+                    break;
                 case "exit":
                     System.out.println("Exiting client.");
                     break;
