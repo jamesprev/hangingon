@@ -94,7 +94,6 @@ public class FlightclubClient {
     }
     
     public void viewFlights() {
-        
         System.out.println("    Implement me!");
     }
 }

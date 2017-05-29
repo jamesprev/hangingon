@@ -5,6 +5,7 @@
  */
 package flightclub.soap;
 
+import flightclub.Flights;
 import flightclub.User;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -25,8 +26,8 @@ public class flightService {
     public User userLogin(@WebParam(name = "email") String email, 
             @WebParam(name = "password") String password) {
         //login user
-        
-        return null;
+        User user = userApp.getUsers().login(email, password);
+        return user;
     }
     
     /**
@@ -35,5 +36,14 @@ public class flightService {
     @WebMethod(operationName = "userLogout")
     public void userLogout() {
         //Invalidate user object??
+    }
+    
+    /**
+     * Returns a list of flights
+     */
+    @WebMethod(operationName = "listFlights")
+    public Flights listFlights() {
+        
+        return flights;
     }
 }
