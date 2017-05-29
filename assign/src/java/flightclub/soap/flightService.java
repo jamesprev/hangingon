@@ -43,7 +43,14 @@ public class flightService {
      */
     @WebMethod(operationName = "listFlights")
     public Flights listFlights() {
-        
-        return flights;
+        return null;
+    }
+    
+    /**
+     * Returns a list of flights
+     */
+    @WebMethod(operationName = "listFlightsWithParams")
+    public Flights listFlightsWithParams() {
+        return null;
     }
 }

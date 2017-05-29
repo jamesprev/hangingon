@@ -94,6 +94,21 @@ public class FlightclubClient {
     }
     
     public void viewFlights() {
-        System.out.println("    Implement me!");
+        Flights flights;
+        
+        Scanner sc = new Scanner(System.in);
+            System.out.print("    Use parameters?(y/n): ");
+            boolean useParams = (sc.nextLine().equals("y") || sc.nextLine().equals("yes"));
+        if (useParams) {
+            
+        } else {
+            flights = service.listFlights();
+        }
+        
+        
+    }
+    
+    public void printFlights(Flights flights) {
+        
     }
 }
