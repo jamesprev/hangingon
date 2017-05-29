@@ -56,7 +56,7 @@
 
         <c:import url="WEB-INF/flights.xml" var="xml" />
         <c:import url="flights.xsl" var="xsl" />
-        <x:transform xml="${xml}" xslt="${xsl}" />
+       
 
     </body>
     
