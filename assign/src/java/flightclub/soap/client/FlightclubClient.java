@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class FlightclubClient {
     public FlightService_Service locator;
     public FlightService service;
+    User user;
   
     public static void main(String[] args) {
         FlightService_Service locator = new FlightService_Service();
@@ -29,21 +30,31 @@ public class FlightclubClient {
     }
     
     /**
-     * Gives the user a choice
+     * Gives the user a choice, runs when the user is not logged in
      */
     public void runClient() {
         Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Action (login|viewflights|exit) :");
+        //Check if user is null, 
+        //if they are (i.e. not logged in), show basic menu
+        //if they aren't (i.e. they are logged in), show full menu
+        System.out.println("Action (login|viewflights|exit): ");
         String input = "";
         do {
             input = sc.nextLine();
             switch(input) {
+                
                 case "exit":
                     System.out.println("Exiting client.");
                     break;
             }
         } while(!input.equals("exit"));
+    }
+    
+    /**
+     * Runs when the user is logged in
+     */
+    public void runFullClient() {
+        
     }
     
     /**
