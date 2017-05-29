@@ -69,24 +69,27 @@ public class FlightclubClient {
         System.out.println("Choices: ");
     }
     
+    public void loginUser() {
+        user = null;
+        do {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("    Email: ");
+            String input = sc.nextLine();
+            
+            Console console = System.console();
+
+            password = new String(console.readPassword("    Password: "));
+            
+            user = service.login(input); 
+            if (user != null) {
+                System.out.println("Found " + user.getName());
+            } else {
+                System.out.println("No such user found.");
+            }
+        } while (user != null);
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public void viewFlights() {
+        System.out.println("    Implement me!");
+    }
 }
