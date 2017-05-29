@@ -56,7 +56,7 @@
     <xsl:template match="flights/flight">
         <!--Apply style & write out row-->
         
-        <!--Check destination-->
+        <!--Perform search-->
         <xsl:if test="($destination = '' or destination = $destination)
                     and ($departure = '' or departure = $departure)
                     and ($typeOfFlight = 'Either' or typeofflighte = $typeOfFlight or typeofflightb = $typeOfFlight)

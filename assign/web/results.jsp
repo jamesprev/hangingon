@@ -4,7 +4,6 @@
     Author     : Jamie Prevedoros
 --%>
 
-<%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="flightclub.*"%>

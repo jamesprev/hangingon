@@ -47,11 +47,10 @@
         </ul>
         
         <%--IF USER HAS NOT ALREADY BOOKED A FLIGHT:--%>
-        <form action="makeBooking.jsp" method ="post">
-            <% session.setAttribute("flightToBook", flight); %>
+        <form action="makeBooking.jsp?flightToBook=<%=flight.getFlightId()%>" method ="post">
             <input type="radio" name="typeOfFlight" value="Economy">Economy<br>
             <input type="radio" name="typeOfFlight" value="Business">Business<br>
-            <input type="submit" name="submit" value="Book Seat">
+            <input type="submit" name="submit" value="Book Seat"/>
         </form>
         
     </body>

@@ -34,16 +34,17 @@ String userFilePath = application.getRealPath("WEB-INF/users.xml"); %>
             //Check if have created a new booking
             User user = (User)session.getAttribute("user");
             
-            if (user != null) {
+            if (user != null) { //Check if user is logged in
                 String submitted = request.getParameter("submit");
-                if (submitted != null && submitted.equals("Book Seat")) {
+                if (submitted != null && submitted.equals("Book Seat")) { //Check that the user has requested a new booking
                     //Check that user doesn't already have a booking (this is currently not working??)
                     if (user.getBooking() == null) {
                         //Request to book is valid, process
                         String seatType = request.getParameter("typeOfFlight");
-                        Flight flightToBook = (Flight)session.getAttribute("flightToBook");
-                        //Flight flight = flightApp.getFlights().findById(flightToBook.getFlightId());
-                        Booking booking = flightToBook.bookNextAvailableSeat(seatType, user.getEmail());
+                        String flightToBook = request.getParameter("flightToBook");
+                        %><p>DEBUG: flightToBook = <%=flightToBook%> </p><%
+                        Flight flight = flightApp.getFlights().findById(flightToBook);
+                        Booking booking = flight.bookNextAvailableSeat(seatType, user.getEmail());
 
                         if (booking != null) { //Checks if booking creation was successful
                             //Retrieve user from 'database', then set the booking object
@@ -61,8 +62,7 @@ String userFilePath = application.getRealPath("WEB-INF/users.xml"); %>
                         %><p>You already have a booking. Please cancel your booking before making a new booking.</p> <%
                     }
                 } else { 
-                    %>
-                    <p>Booking failed, please try again later.</p><%
+                    %><p>Booking failed, please try again later.</p><%
                 }
             } else {
                 %><p>Please log in to make a booking.</p><%

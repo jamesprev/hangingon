@@ -27,10 +27,16 @@ String userFilePath = application.getRealPath("WEB-INF/users.xml"); %>
     <body>
         <jsp:include page="menu.jsp"/>
         
-        <h1>Booking</h1>
         <%
             //Check if logged in
             User user = (User)session.getAttribute("user");
+            String targetUser = request.getParameter("targetUser"); //Check admin
+            if (targetUser != null && user.getIsAdmin()) { //Admin wants to view booking as user
+                user = userApp.getUsers().getUser(targetUser);
+                %><h1>(Admin) <%=targetUser%>'s Booking</h1><%
+            } else {
+                %><h1>My Booking</h1><%
+            }
             
             if (user != null) { //User is logged in
                 //Check if a cancel request was submitted

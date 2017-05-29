@@ -1,0 +1,55 @@
+<style>
+            table.booklist { border: solid 1px black; border-collapse: collapse; }
+            table.booklist th { background: #333333; color: white; padding: 8px; border: solid 1px #999999;}
+            table.booklist tr:nth-child(2) { background: #ffffff;}
+            table.booklist td { border: solid 1px #999; }
+            .artist { font-style: italic; margin-bottom: 20px;}
+        </style><table class="booklist">
+<thead>
+<tr>
+<th>User</th><th>Name</th><th>Flight ID</th><th>Row/Seat</th><th>Seat Type</th>
+</tr>
+</thead>
+<tbody>
+    
+<form action="booking.jsp?targetUser=" method="post">
+<tr>
+        
+<td>ryan@ryanheise.com</td>
+        <td>Ryan Heise</td>
+        
+        
+        
+    
+</tr>
+<input type="submit" name="checkBooking" value="View Booking">
+</form>
+    
+<form action="booking.jsp?targetUser=" method="post">
+<tr>
+        
+<td>joe@bloggs.com</td>
+        <td>Joe Bloggs</td>
+        
+        
+        
+    
+</tr>
+<input type="submit" name="checkBooking" value="View Booking">
+</form>
+    
+<form action="booking.jsp?targetUser=" method="post">
+<tr>
+        
+<td>user@users.com</td>
+        <td>Userino Useroni</td>
+        
+        
+        
+    
+</tr>
+<input type="submit" name="checkBooking" value="View Booking">
+</form>
+
+</tbody>
+</table><br>

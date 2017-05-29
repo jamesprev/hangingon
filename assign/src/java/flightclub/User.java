@@ -57,6 +57,7 @@ public class User implements Serializable {
         this.password = password;
         this.dob = dob;
         this.isAdmin = isAdmin;
+        this.booking = null;
     }
 
     //Booking management

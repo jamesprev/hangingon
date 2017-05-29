@@ -4,11 +4,13 @@
     Author     : Harrison
 --%>
 
-<%@page import="flightclub.dom.UsersPrinter.Printer"%>
-<%@page import="flightclub.dom.UsersPrinter.Printer.XMLPrinter"%>
-<%@page import="flightclub.dom.UsersPrinter"%>
+<%@page import="flightclub.dom.*"%>
+<%@page import="flightclub.dom.UsersPrinter.*"%>
+<%@page import="flightclub.dom.UsersPrinter.Printer.*"%>
 <%@page import="java.io.*"%>
-<%@page import="flightclub.User"%>
+<%@page import="flightclub.*"%>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% 
     User sessionUser = (User)session.getAttribute("user"); 
@@ -29,10 +31,15 @@
             <%if (!sessionUser.getIsAdmin()) { //User is not an admin%>
                 <h1>Please log in with an admin account to access this page</h1>
             <%} else { //USER IS AN ADMIN, load page as usual%>
+            
+                <c:import url="WEB-INF/users.xml" var="xml" />
+                <c:import url="bookings.xsl" var="xsl" />
+                <x:transform xml="${xml}" xslt="${xsl}">
+                    <%--<x:param name="departure" value="<%=departure%>"/>--%>
+                </x:transform>
+            
                 <%
-                    //TEST - write out raw XML of both
-                    /**/
-                    //Set up new XML printer to print to server log
+                    //DEBUGGING - prints out xml files to server log
                     Printer xml = new XMLPrinter();       
                     PrintWriter systemOut = new PrintWriter(new OutputStreamWriter(System.out), true);
                     
