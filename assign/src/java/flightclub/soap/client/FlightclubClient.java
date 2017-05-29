@@ -79,22 +79,36 @@ public class FlightclubClient {
         do {
             Scanner sc = new Scanner(System.in);
             System.out.print("    Email: ");
-            String input = sc.nextLine();
+            String email = sc.nextLine();
+            System.out.print("    Password: ");
+            String password= sc.nextLine();
             
-            Console console = System.console();
-
-            password = new String(console.readPassword("    Password: "));
-            
-            user = service.login(input); 
+            user = service.userLogin(email, password); 
             if (user != null) {
-                System.out.println("Found " + user.getName());
+                System.out.println("===========================================");
+                System.out.println("Welcome, " + user.getName());
             } else {
-                System.out.println("No such user found.");
+                System.out.println("    Login failed.");
             }
         } while (user != null);
     }
     
     public void viewFlights() {
-        System.out.println("    Implement me!");
+        Flights flights;
+        
+        Scanner sc = new Scanner(System.in);
+            System.out.print("    Use parameters?(y/n): ");
+            boolean useParams = (sc.nextLine().equals("y") || sc.nextLine().equals("yes"));
+        if (useParams) {
+            
+        } else {
+            flights = service.listFlights();
+        }
+        
+        
+    }
+    
+    public void printFlights(Flights flights) {
+        
     }
 }
