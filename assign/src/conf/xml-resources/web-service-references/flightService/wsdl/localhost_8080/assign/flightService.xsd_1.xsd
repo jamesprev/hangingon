@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://soap.flightclub/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://soap.flightclub/">
+
+<xs:element name="user" type="tns:user"/>
+
+<xs:element name="userLogin" type="tns:userLogin"/>
+
+<xs:element name="userLoginResponse" type="tns:userLoginResponse"/>
+
+<xs:element name="userLogout" type="tns:userLogout"/>
+
+<xs:element name="userLogoutResponse" type="tns:userLogoutResponse"/>
+
+<xs:complexType name="userLogin">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userLoginResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="dob" type="xs:string" minOccurs="0"/>
+<xs:element name="isAdmin" type="xs:boolean"/>
+<xs:element name="booking" type="tns:booking" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="booking">
+<xs:sequence>
+<xs:element name="flightId" type="xs:string" minOccurs="0"/>
+<xs:element name="row" type="xs:int"/>
+<xs:element name="seatNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="seatType" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userLogout">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="userLogoutResponse">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>
