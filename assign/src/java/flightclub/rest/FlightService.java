@@ -33,7 +33,7 @@ public class FlightService {
         }   
     }
     
-        private UserApplication getUserApp() throws JAXBException, IOException, Exception {
+    private UserApplication getUserApp() throws JAXBException, IOException, Exception {
         synchronized (application) {
             UserApplication userApp = (UserApplication)application.getAttribute("userapp");
             if (userApp == null) {

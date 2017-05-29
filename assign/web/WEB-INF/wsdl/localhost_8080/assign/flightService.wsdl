@@ -4,11 +4,26 @@
 <xsd:import namespace="http://soap.flightclub/" schemaLocation="http://localhost:8080/assign/flightService?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="listFlightsWithParams">
+<part name="parameters" element="tns:listFlightsWithParams"/>
+</message>
+<message name="listFlightsWithParamsResponse">
+<part name="parameters" element="tns:listFlightsWithParamsResponse"/>
+</message>
 <message name="userLogin">
 <part name="parameters" element="tns:userLogin"/>
 </message>
 <message name="userLoginResponse">
 <part name="parameters" element="tns:userLoginResponse"/>
+</message>
+<message name="IOException">
+<part name="fault" element="tns:IOException"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
+</message>
+<message name="JAXBException">
+<part name="fault" element="tns:JAXBException"/>
 </message>
 <message name="userLogout">
 <part name="parameters" element="tns:userLogout"/>
@@ -16,18 +31,56 @@
 <message name="userLogoutResponse">
 <part name="parameters" element="tns:userLogoutResponse"/>
 </message>
-<portType name="flightService">
+<message name="createBooking">
+<part name="parameters" element="tns:createBooking"/>
+</message>
+<message name="createBookingResponse">
+<part name="parameters" element="tns:createBookingResponse"/>
+</message>
+<message name="listFlights">
+<part name="parameters" element="tns:listFlights"/>
+</message>
+<message name="listFlightsResponse">
+<part name="parameters" element="tns:listFlightsResponse"/>
+</message>
+<portType name="FlightService">
+<operation name="listFlightsWithParams">
+<input wsam:Action="http://soap.flightclub/FlightService/listFlightsWithParamsRequest" message="tns:listFlightsWithParams"/>
+<output wsam:Action="http://soap.flightclub/FlightService/listFlightsWithParamsResponse" message="tns:listFlightsWithParamsResponse"/>
+</operation>
 <operation name="userLogin">
-<input wsam:Action="http://soap.flightclub/flightService/userLoginRequest" message="tns:userLogin"/>
-<output wsam:Action="http://soap.flightclub/flightService/userLoginResponse" message="tns:userLoginResponse"/>
+<input wsam:Action="http://soap.flightclub/FlightService/userLoginRequest" message="tns:userLogin"/>
+<output wsam:Action="http://soap.flightclub/FlightService/userLoginResponse" message="tns:userLoginResponse"/>
+<fault message="tns:IOException" name="IOException" wsam:Action="http://soap.flightclub/FlightService/userLogin/Fault/IOException"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.flightclub/FlightService/userLogin/Fault/Exception"/>
+<fault message="tns:JAXBException" name="JAXBException" wsam:Action="http://soap.flightclub/FlightService/userLogin/Fault/JAXBException"/>
 </operation>
 <operation name="userLogout">
-<input wsam:Action="http://soap.flightclub/flightService/userLogoutRequest" message="tns:userLogout"/>
-<output wsam:Action="http://soap.flightclub/flightService/userLogoutResponse" message="tns:userLogoutResponse"/>
+<input wsam:Action="http://soap.flightclub/FlightService/userLogoutRequest" message="tns:userLogout"/>
+<output wsam:Action="http://soap.flightclub/FlightService/userLogoutResponse" message="tns:userLogoutResponse"/>
+</operation>
+<operation name="createBooking">
+<input wsam:Action="http://soap.flightclub/FlightService/createBookingRequest" message="tns:createBooking"/>
+<output wsam:Action="http://soap.flightclub/FlightService/createBookingResponse" message="tns:createBookingResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.flightclub/FlightService/createBooking/Fault/Exception"/>
+</operation>
+<operation name="listFlights">
+<input wsam:Action="http://soap.flightclub/FlightService/listFlightsRequest" message="tns:listFlights"/>
+<output wsam:Action="http://soap.flightclub/FlightService/listFlightsResponse" message="tns:listFlightsResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://soap.flightclub/FlightService/listFlights/Fault/Exception"/>
 </operation>
 </portType>
-<binding name="flightServicePortBinding" type="tns:flightService">
+<binding name="FlightServicePortBinding" type="tns:FlightService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="listFlightsWithParams">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="userLogin">
 <soap:operation soapAction=""/>
 <input>
@@ -36,6 +89,15 @@
 <output>
 <soap:body use="literal"/>
 </output>
+<fault name="IOException">
+<soap:fault name="IOException" use="literal"/>
+</fault>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+<fault name="JAXBException">
+<soap:fault name="JAXBException" use="literal"/>
+</fault>
 </operation>
 <operation name="userLogout">
 <soap:operation soapAction=""/>
@@ -45,10 +107,34 @@
 <output>
 <soap:body use="literal"/>
 </output>
+</operation>
+<operation name="createBooking">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="listFlights">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
 </operation>
 </binding>
 <service name="flightService">
-<port name="flightServicePort" binding="tns:flightServicePortBinding">
+<port name="FlightServicePort" binding="tns:FlightServicePortBinding">
 <soap:address location="http://localhost:8080/assign/flightService"/>
 </port>
 </service>

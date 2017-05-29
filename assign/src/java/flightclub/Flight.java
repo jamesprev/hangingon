@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * and open the template in the editor.
  */
 /**
- *
+ * Holder class for all flight details
  * @author Jamie Prevedoros
  */
 @XmlAccessorType(XmlAccessType.FIELD)
