@@ -15,19 +15,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<%
-    //Get the user
-    //Get the user's booking object
-    //Check if booking is null
-    
-    
-%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>My Booking</title>
     </head>
     <body>
+        <jsp:include page="menu.jsp"/>
+        
     <% //Check if user is logged in
     User user = (User)session.getAttribute("user");
     if (user != null) {
@@ -55,7 +50,7 @@
 
         <%  }
         } else { //Display no booking stuff%>
-            <h3>You have not made any bookings. Please go to the main page to search for a flight to book.</h3>
+            <h3>You do not have a booking. Please go to the main page to search for a flight to book.</h3>
     <%  } 
     } else { //user is not logged in%>
         <h3>You are not logged in. Please <a href="login.jsp">login</a> first.</h3>

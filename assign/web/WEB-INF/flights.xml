@@ -48,6 +48,19 @@
         <availableseats>2</availableseats>
         <departuredate>02/06/17</departuredate>
         <returndate>05/06/17</returndate>
+        <flightSeatsE></flightSeatsE>
+        <flightSeatsB>
+            <flightSeat>
+                <row>1</row>
+                <seatNumber>A</seatNumber>
+                <booked>false</booked>
+            </flightSeat>
+            <flightSeat>
+                <row>1</row>
+                <seatNumber>B</seatNumber>
+                <booked>false</booked>
+            </flightSeat>
+        </flightSeatsB>
     </flight>
     <flight>
         <flightId>3</flightId>
@@ -60,5 +73,19 @@
         <availableseats>2</availableseats>
         <departuredate>03/06/17</departuredate>
         <returndate>06/06/17</returndate>
+        <flightSeatsE>
+            <flightSeat>
+                <row>1</row>
+                <seatNumber>A</seatNumber>
+                <booked>false</booked>
+            </flightSeat>
+            <flightSeat>
+                <row>1</row>
+                <seatNumber>B</seatNumber>
+                <booked>false</booked>
+            </flightSeat>
+        </flightSeatsE>
+        <flightSeatsB>
+        </flightSeatsB>
     </flight>
 </flights>

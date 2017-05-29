@@ -46,6 +46,27 @@ public class FlightSeats implements Serializable {
         return null;
     }
     
+    /**
+     * Cancels a given booking
+     * @param booking 
+     */
+    public void cancelBooking(Booking booking) {
+        //Get the correct seat
+        FlightSeat seat = getSeat(booking.getRow(), booking.getSeatNumber());
+        if (seat != null) { //Seat found, process cancellation
+            seat.cancelBooking();
+        }
+    }
+    
+    private FlightSeat getSeat(int row, String seatNumber) {
+        for (FlightSeat seat : list) {
+            if (seat.getRow() == row && seat.getSeatNumber().equals(seatNumber)) {
+                return seat;
+            }
+        }
+        return null;
+    }
+    
     public int getNumAvailableSeats() {
         int numOfSeats = 0;
         for(FlightSeat seat : list) {

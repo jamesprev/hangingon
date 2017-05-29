@@ -42,14 +42,14 @@ String userFilePath = application.getRealPath("WEB-INF/users.xml"); %>
                         //Request to book is valid, process
                         String seatType = request.getParameter("typeOfFlight");
                         Flight flightToBook = (Flight)session.getAttribute("flightToBook");
-
-                        Flight flight = flightApp.getFlights().findById(flightToBook.getFlightId());
-
-                        Booking booking = flight.bookNextAvailableSeat(seatType, user.getEmail());
+                        //Flight flight = flightApp.getFlights().findById(flightToBook.getFlightId());
+                        Booking booking = flightToBook.bookNextAvailableSeat(seatType, user.getEmail());
 
                         if (booking != null) { //Checks if booking creation was successful
                             //Retrieve user from 'database', then set the booking object
-                            userApp.getUsers().getUser(user.getEmail()).setBooking(booking);
+                            //User currentUser =  userApp.getUsers().getUser(user.getEmail());
+                            //TODO - test if just using the session user will still update the xml correctly
+                            user.setBooking(booking);
                             //Write out both the flights.xml and the users.xml with the new info
                             flightApp.writeFlightsXml();
                             userApp.writeUsersXml();

@@ -59,6 +59,15 @@ public class User implements Serializable {
         this.isAdmin = isAdmin;
     }
 
+    //Booking management
+    /**
+     * Removes the booking object from this user
+     */
+    public void cancelBooking() {
+        booking = null;
+    }
+    
+    //Field validators
     public boolean isNameValid() {
         if (name != null && !name.isEmpty()) {
             Pattern pattern = Pattern

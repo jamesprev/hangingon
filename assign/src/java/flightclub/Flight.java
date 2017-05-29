@@ -114,12 +114,28 @@ public class Flight implements Serializable {
                 break;
         }
         if (seat != null) { //Found a seat, create booking and return it
-            seat.setBooked(true);
-            seat.setBookedBy(userEmail);
-            //TODO - UPDATE THE TOTAL NUMBER OF SEATS
+            seat.createBooking(userEmail);
+            availableseats--; //Update the total amount of seats available
             return new Booking(flightId, seat.getRow(), seat.getSeatNumber(), seatType);
+            //TODO - set availability variable if availableseats reaches 0 zero?
         }
+        //Else, couldn't find an available seat.
         return null;
+    }
+    
+    public void cancelBooking(Booking booking) {
+        //Gets seat type
+        switch(booking.getSeatType()) {
+            case "Business":
+                flightSeatsB.cancelBooking(booking);
+                break;
+            case "Economy":
+            default:
+                flightSeatsE.cancelBooking(booking);
+                break;
+        }
+        availableseats++;
+        //TODO - set availability variable if available seats goes up to 1 or more
     }
     
     /**

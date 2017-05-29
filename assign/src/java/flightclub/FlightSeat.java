@@ -42,6 +42,17 @@ public class FlightSeat implements Serializable {
         bookedBy = "";
     }
     
+    public void createBooking(String userEmail) {
+        setBooked(true);
+        setBookedBy(userEmail);
+    }
+
+    public void cancelBooking() {
+        //Cancels the booking
+        setBooked(false);
+        setBookedBy("");
+    }
+    
     public int getRow() {
         return row;
     }
