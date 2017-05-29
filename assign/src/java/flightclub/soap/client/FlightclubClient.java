@@ -42,7 +42,12 @@ public class FlightclubClient {
         do {
             input = sc.nextLine();
             switch(input) {
-                
+                default:
+                case "login":
+                    loginUser();
+                    break;
+                case "viewflights": 
+                    
                 case "exit":
                     System.out.println("Exiting client.");
                     break;
