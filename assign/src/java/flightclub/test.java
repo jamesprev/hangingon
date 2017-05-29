@@ -5,33 +5,25 @@
  */
 package flightclub;
 
+import java.io.Console;
+import java.util.Scanner;
+
 /**
  * A test class for checking individual units
  * @author Harrison
  */
 public class test {
     public static void main(String[] args) { 
-        //Make a new array of size 2
-        String[] stringArray = new String[5];
-        //Populate the array with some strings
-        stringArray[0] = "String1";
-        stringArray[1] = "String2";
-        stringArray[2] = "String3";
-        stringArray[3] = "String4";
-        stringArray[4] = "String5";
-
-        /*
-        for (int i = 0; i < stringArray.length; i++) {
-            //Do something with each list item
-            String listEntry = stringArray[i];
-            System.out.println(listEntry);
-        }*/
         
-        //for each string (currentString) in the list stringArray, do some stuff
+        Scanner sc = new Scanner(System.in);
+        System.out.print("    Email: ");
+        String email = sc.nextLine();
+        Console console = System.console();
+        String password = new String(console.readPassword("    Password: "));
         
-        //for each 
-        for (String currentString : stringArray) {
-            System.out.println(currentString); 
-        }
+        
+        System.out.println();
+        System.out.println("User = " + email);
+        System.out.println("Pass = " + password);
     }
 }
